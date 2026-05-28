@@ -1,20 +1,35 @@
-// app.js
-// Dieses Skript fügt einen einfachen Klick-Effekt auf den Button hinzu.
-
+const themeToggle = document.getElementById("themeToggle");
 const button = document.getElementById("magicButton");
 const message = document.getElementById("message");
 const dateButton = document.getElementById("dateButton");
 const dateMessage = document.getElementById("dateMessage");
 
-// Wir prüfen, ob die Elemente existieren, bevor wir mit ihnen arbeiten.
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  if (themeToggle) {
+    themeToggle.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Zum hellen Modus wechseln" : "Zum dunklen Modus wechseln"
+    );
+  }
+}
+
+if (themeToggle) {
+  const initial = document.documentElement.getAttribute("data-theme") || "light";
+  applyTheme(initial);
+
+  themeToggle.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    applyTheme(current === "dark" ? "light" : "dark");
+  });
+}
+
 if (button && message) {
   button.addEventListener("click", () => {
-    // Wenn der Button geklickt wird, ändern wir die Nachricht im Textfeld.
     message.textContent = "🎉 Du hast erfolgreich geklickt!";
-    // Der Button bekommt eine kurze Animation.
     button.classList.add("clicked");
 
-    // Nach 500 ms entfernen wir die Klasse wieder, damit der Effekt erneut auslösbar ist.
     setTimeout(() => {
       button.classList.remove("clicked");
       message.textContent = "Bereit für einen kleinen Effekt?";

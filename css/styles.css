@@ -1,18 +1,25 @@
-/* styles.css
-   Modernes Design für eine einfache Hello-World-Website.
-   Die Regeln sind bewusst klar gehalten für Einsteiger. */
-
 :root {
-  --background: #eef4ff;
   --surface: #ffffff;
-  --surface-soft: #f8fbff;
+  --surface-soft: #f5f8ff;
   --text: #1d2636;
   --muted: #52607a;
   --accent: #4b77f5;
   --accent-soft: #dce5ff;
   --accent-strong: #335cd1;
-  --border: rgba(75, 124, 243, 0.14);
-  --shadow: 0 30px 80px rgba(72, 96, 166, 0.12);
+  --border: rgba(75, 120, 243, 0.15);
+  --shadow: 0 24px 64px rgba(72, 96, 166, 0.13);
+}
+
+[data-theme="dark"] {
+  --surface: #161c2e;
+  --surface-soft: #1e2540;
+  --text: #dde3f5;
+  --muted: #8b96b6;
+  --accent: #7393ff;
+  --accent-soft: #1a2450;
+  --accent-strong: #5572e8;
+  --border: rgba(115, 147, 255, 0.14);
+  --shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -30,24 +37,71 @@ body {
   background: radial-gradient(circle at top center, rgba(255, 255, 255, 0.95), transparent 38%),
     linear-gradient(180deg, #f7faff 0%, #edf4ff 100%);
   min-height: 100vh;
+  transition: background 350ms ease, color 350ms ease;
+}
+
+[data-theme="dark"] body {
+  background: radial-gradient(circle at top center, rgba(20, 30, 65, 0.5), transparent 42%),
+    linear-gradient(180deg, #0b0f1c 0%, #0f1626 100%);
 }
 
 .page-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 36px 24px;
+  gap: 20px;
 }
 
 .hero {
+  position: relative;
   width: min(920px, 100%);
   padding: 40px;
   border-radius: 32px;
   background: var(--surface);
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
+  transition: background 350ms ease, border-color 350ms ease, box-shadow 350ms ease;
 }
+
+.theme-toggle {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: color 200ms ease, background 200ms ease, border-color 200ms ease,
+    transform 200ms ease, box-shadow 200ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--accent);
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 4px 20px rgba(75, 119, 245, 0.22);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.icon-sun { display: none; }
+.icon-moon { display: block; }
+[data-theme="dark"] .icon-sun { display: block; }
+[data-theme="dark"] .icon-moon { display: none; }
 
 .brand {
   display: flex;
@@ -62,6 +116,8 @@ body {
   border-radius: 22px;
   background: var(--accent-soft);
   padding: 14px;
+  flex-shrink: 0;
+  transition: background 350ms ease;
 }
 
 h1 {
@@ -76,6 +132,7 @@ h1 {
   color: var(--muted);
   font-size: 1.08rem;
   line-height: 1.8;
+  transition: color 350ms ease;
 }
 
 .primary-button {
@@ -94,20 +151,15 @@ h1 {
   border: none;
   border-radius: 999px;
   cursor: pointer;
-  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease,
+    background 350ms ease;
 }
 
 .primary-button:hover,
 .primary-button:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(75, 124, 243, 0.24);
+  box-shadow: 0 18px 40px rgba(75, 124, 243, 0.28);
   opacity: 0.98;
-}
-
-.feedback-message {
-  margin-top: 20px;
-  color: var(--muted);
-  font-size: 1rem;
 }
 
 .primary-button.clicked {
@@ -115,12 +167,20 @@ h1 {
   box-shadow: 0 12px 22px rgba(75, 124, 243, 0.18);
 }
 
+.feedback-message {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 1rem;
+  transition: color 350ms ease;
+}
+
 .about-section {
-  margin-top: 34px;
+  width: min(920px, 100%);
   padding: 28px;
   border-radius: 28px;
   background: var(--surface-soft);
   border: 1px solid var(--border);
+  transition: background 350ms ease, border-color 350ms ease;
 }
 
 .about-section h2 {
@@ -134,6 +194,7 @@ h1 {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.9;
+  transition: color 350ms ease;
 }
 
 .project-details li {
@@ -149,7 +210,7 @@ h1 {
 }
 
 button:focus-visible {
-  outline: 3px solid rgba(75, 124, 243, 0.25);
+  outline: 3px solid rgba(75, 124, 243, 0.3);
   outline-offset: 4px;
 }
 
