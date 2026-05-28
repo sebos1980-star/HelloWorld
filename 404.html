@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verlaufen am Hof · Bronko-Donko</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patua+One&family=Nunito:wght@400;700&display=swap" />
+  <style>
+    /* Inline-Styles: 404 wird von beliebigen Pfaden geserved, externe relative
+       Pfade würden brechen — daher self-contained. */
+    :root {
+      --bg: #000; --silver: #c0c0c0; --red: #ed130d; --yellow: #f2c200;
+      --silver-faint: rgba(192,192,192,0.15);
+      --display: 'Patua One', Georgia, serif;
+      --body: 'Nunito', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--silver);
+      font-family: var(--body); min-height: 100vh;
+      display: flex; flex-direction: column;
+      background-image:
+        radial-gradient(ellipse at top left, rgba(192,192,192,0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(237,19,13,0.05) 0%, transparent 60%);
+    }
+    header {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--silver-faint);
+      background: rgba(0,0,0,0.92);
+    }
+    .brand {
+      font-family: var(--display); font-size: 1.3rem;
+      letter-spacing: 0.08em; color: var(--silver);
+      text-decoration: none;
+    }
+    .brand span { color: var(--red); }
+    .stripe { height: 3px; background: var(--red); }
+    main {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 4rem 1rem;
+    }
+    .code {
+      font-family: var(--display);
+      font-size: clamp(6rem, 20vw, 12rem);
+      color: var(--red); line-height: 1;
+      text-shadow: 0 0 40px rgba(237,19,13,0.4);
+      margin-bottom: 1rem;
+    }
+    .msg {
+      font-family: var(--display);
+      font-size: 1.5rem; color: var(--silver);
+      margin-bottom: 2rem; letter-spacing: 0.04em;
+    }
+    .cta {
+      display: inline-block; padding: 0.75rem 2rem;
+      background: var(--red); color: #fff;
+      font-family: var(--display); font-size: 1.1rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border: 2px solid var(--red); border-radius: 2px;
+      text-decoration: none; transition: all 150ms;
+      box-shadow: 0 0 24px rgba(237,19,13,0.4);
+    }
+    .cta:hover { background: transparent; color: var(--red); }
+    footer {
+      padding: 1.5rem; text-align: center;
+      color: rgba(192,192,192,0.6); font-size: 0.8rem;
+      border-top: 1px solid var(--silver-faint);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="brand" id="brand-link">BRONKO<span>-</span>DONKO</a>
+  </header>
+  <div class="stripe"></div>
+
+  <main>
+    <div class="code">404</div>
+    <p class="msg">Hier ist kein Hof. Hier ist Niemandsland.</p>
+    <a href="#" class="cta" id="home-link">Zurück zur Startseite &rsaquo;</a>
+  </main>
+
+  <footer>
+    © 2026 Bronko-Donko
+  </footer>
+
+  <script>
+    // Setze Home-Pfad dynamisch — funktioniert bei Custom-Domain (/) und bei
+    // GitHub-Pages-Projektpfad (/HelloWorld/).
+    (() => {
+      const segs = location.pathname.split('/').filter(Boolean);
+      // Heuristik: wenn Host github.io ist und mind. 1 Segment existiert,
+      // nehmen wir das erste Segment als Repo-Basis.
+      const onProjectPage = location.hostname.endsWith('github.io') && segs.length >= 1;
+      const home = onProjectPage ? '/' + segs[0] + '/' : '/';
+      const homeLink = document.getElementById('home-link');
+      const brandLink = document.getElementById('brand-link');
+      if (homeLink) homeLink.href = home;
+      if (brandLink) brandLink.href = home;
+    })();
+  </script>
+</body>
+</html>

@@ -1,57 +1,23 @@
-const themeToggle = document.getElementById("themeToggle");
-const button = document.getElementById("magicButton");
-const message = document.getElementById("message");
-const dateButton = document.getElementById("dateButton");
-const dateMessage = document.getElementById("dateMessage");
+(() => {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('nav');
+  if (!toggle || !nav) return;
 
-function applyTheme(theme) {
-  document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
-  if (themeToggle) {
-    themeToggle.setAttribute(
-      "aria-label",
-      theme === "dark" ? "Zum hellen Modus wechseln" : "Zum dunklen Modus wechseln"
-    );
-  }
-}
+  const close = () => {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
 
-if (themeToggle) {
-  const initial = document.documentElement.getAttribute("data-theme") || "light";
-  applyTheme(initial);
-
-  themeToggle.addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme");
-    applyTheme(current === "dark" ? "light" : "dark");
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
-}
 
-if (button && message) {
-  button.addEventListener("click", () => {
-    message.textContent = "🎉 Du hast erfolgreich geklickt!";
-    button.classList.add("clicked");
-
-    setTimeout(() => {
-      button.classList.remove("clicked");
-      message.textContent = "Bereit für einen kleinen Effekt?";
-    }, 1200);
+  nav.addEventListener('click', (e) => {
+    if (e.target.closest('.nav__link')) close();
   });
-}
 
-if (dateButton && dateMessage) {
-  dateButton.addEventListener("click", () => {
-    const now = new Date();
-    const formattedDate = now.toLocaleDateString("de-DE", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-    const formattedTime = now.toLocaleTimeString("de-DE", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    });
-
-    dateMessage.textContent = `Aktuell: ${formattedDate}, ${formattedTime}`;
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
   });
-}
+})();

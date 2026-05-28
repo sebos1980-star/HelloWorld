@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="Bild folgt">
+  <rect width="320" height="180" fill="#0a0a0a"/>
+  <rect x="0" y="172" width="320" height="8" fill="#ed130d"/>
+  <rect x="0" y="0" width="320" height="4" fill="#f2c200"/>
+  <line x1="-20" y1="200" x2="340" y2="-20" stroke="#c0c0c0" stroke-width="1" stroke-dasharray="6 8" opacity="0.18"/>
+  <text x="160" y="92" text-anchor="middle" fill="#c0c0c0" font-family="Georgia, serif" font-size="20" letter-spacing="3">BILD FOLGT</text>
+  <text x="160" y="118" text-anchor="middle" fill="#c0c0c0" font-family="system-ui, sans-serif" font-size="10" opacity="0.6" letter-spacing="2">BRONKO-DONKO</text>
+</svg>
