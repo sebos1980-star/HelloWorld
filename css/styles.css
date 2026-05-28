@@ -100,6 +100,36 @@ h1 {
   box-shadow: 0 10px 24px rgba(75, 124, 243, 0.18);
 }
 
+.about-section {
+  margin-top: 32px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border);
+}
+
+.about-section h2 {
+  margin: 0 0 16px;
+  font-size: clamp(1.9rem, 2.5vw, 2.4rem);
+}
+
+.project-details {
+  margin: 0;
+  padding-left: 1.3rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.project-details li {
+  margin-bottom: 12px;
+}
+
+.date-block {
+  margin-top: 22px;
+}
+
+#dateMessage {
+  margin-top: 16px;
+}
+
 button:focus-visible {
   outline: 3px solid rgba(75, 124, 243, 0.35);
   outline-offset: 4px;
