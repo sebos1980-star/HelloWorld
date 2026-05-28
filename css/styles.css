@@ -109,13 +109,21 @@ strong { color: #fff; }
   position: relative;
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   font-family: var(--font-display);
   font-size: 1.3rem;
-  color: var(--color-silver);
+  color: var(--color-yellow);
   letter-spacing: 0.08em;
 }
-.brand:hover { color: var(--color-silver); }
+.brand:hover { color: var(--color-yellow); }
 .brand__highlight { color: var(--color-red); }
+.brand__logo {
+  display: block;
+  height: 36px;
+  width: auto;
+}
 
 .nav-toggle {
   display: block;
@@ -159,7 +167,7 @@ strong { color: #fff; }
 .nav__link {
   display: block;
   padding: var(--space-4);
-  color: var(--color-silver);
+  color: var(--color-yellow);
   font-family: var(--font-display);
   font-size: 1.1rem;
   letter-spacing: 0.05em;
@@ -210,20 +218,14 @@ strong { color: #fff; }
   padding: var(--space-16) var(--space-4) var(--space-12);
   text-align: center;
 }
-.hero__logo {
+.hero__image {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
   margin: 0 auto var(--space-6);
-  max-width: 320px;
-  filter: drop-shadow(0 0 24px rgba(237, 19, 13, 0.25));
+  border-radius: 2px;
 }
-.hero__title {
-  font-size: clamp(3rem, 9vw, 6.5rem);
-  letter-spacing: 0.05em;
-  text-shadow:
-    0 2px 0 rgba(0, 0, 0, 0.8),
-    0 0 32px rgba(192, 192, 192, 0.15);
-  margin-bottom: var(--space-2);
-}
-.hero__title-accent { color: var(--color-red); }
 .hero__tagline {
   font-family: var(--font-display);
   color: var(--color-yellow);
@@ -301,7 +303,8 @@ strong { color: #fff; }
   .gang-grid, .character-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 900px) {
-  .gang-grid, .character-grid { grid-template-columns: repeat(4, 1fr); }
+  .gang-grid { grid-template-columns: repeat(2, 1fr); }
+  .character-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 .gang-card {
@@ -323,7 +326,9 @@ strong { color: #fff; }
   background: #000;
   border-bottom: 1px solid var(--color-silver-faint);
   width: 100%;
-  object-fit: cover;
+  /* Gang-Banner zeigen mehrere Figuren nebeneinander auf schwarzem Grund —
+     contain hält alle sichtbar, der schwarze Rand verschmilzt mit der Karte. */
+  object-fit: contain;
 }
 .gang-card__body { padding: var(--space-4); flex: 1; }
 .gang-card__title {
@@ -508,6 +513,33 @@ strong { color: #fff; }
 
 .story-page { max-width: var(--max-width-text); }
 .story-page p { font-size: 1.05rem; }
+.story-page__lead {
+  color: var(--color-silver-dim);
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+}
+.story-page figure {
+  margin: var(--space-8) 0;
+}
+.story-page figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-silver-faint);
+  border-radius: 2px;
+}
+.story-page figcaption {
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+  color: var(--color-silver-dim);
+  font-style: italic;
+}
+.story-page a {
+  color: var(--color-yellow);
+  text-decoration: underline;
+  text-decoration-color: var(--color-silver-faint);
+}
+.story-page a:hover { text-decoration-color: var(--color-yellow); }
 
 /* ============================================
    404
