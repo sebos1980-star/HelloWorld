@@ -46,10 +46,19 @@
       <div class="section__inner">
         <h2 class="section__title">Worum geht's hier überhaupt?</h2>
         <p class="section__lead">
-          Bronko-Donko ist der derbe Nachfolger der Schulhof-Klassiker. Acht Gängs treffen sich am Hof,
-          um den letzten verbliebenen Bronko-Orden auszuspielen. Wer am Ende noch steht, hat alles.
-          Wer fällt, schuldet dem Donko-Haufen. Karten ausspielen, weghauen, ducken — und gewinnen,
-          ohne die Faust zu heben.
+          Du kennst noch das Kartenspiel Arschloch? Vergiss es. Das war auf dem Schulhof.
+          Wir sind hier im Hinterhof. Bei Bronko-Donko werden nicht einfach nur Karten getauscht –
+          hier werden Fressen poliert. Schick deine Schlägertrupps los und sorge dafür, dass du nicht
+          der Letzte bist, der noch Karten auf der Hand hält. Denn dies ist das knallharte Kartenspiel
+          für 2 bis 4 Spieler, bei dem der Verlierer mehr als nur seine besten Karten abgibt.
+        </p>
+        <p class="section__lead">
+          Irgendwo nördlich der Alpen in einem gottverlassenen Hinterhof, wo das Gesetz nichts zu
+          melden hat, entbrennt wieder einmal der legendäre Kampf um die sagenumwobenen Bronko-Orden.
+          Bei Gestank von billigem Bier, Angstschweiß und Desinfektionsmittel treffen sich wieder die
+          skrupellosesten Anführer und die berüchtigtsten Gängs des Landes. Ihr einziges Ziel: In
+          diesem Drecksloch lange genug überleben, um sich am Ende der brutalen Schlägereien zum
+          König des Hofes zu krönen.
         </p>
       </div>
     </section>
@@ -59,72 +68,80 @@
     <section class="section" id="gangs">
       <div class="section__inner">
         <h2 class="section__title">Diese Gängs versammeln sich am Hof</h2>
-        <p class="section__lead">Acht Truppen, acht Geschichten, ein Ziel: den Bronko-Orden holen.</p>
+        <p class="section__lead">Acht Truppen, acht Geschichten, ein Ziel: den Bronko-Orden holen. Tipp antippen für die ganze Geschichte.</p>
 
         <div class="gang-grid">
-          <article class="gang-card">
+          <button type="button" class="gang-card" id="gang-donkos" data-modal data-title="Die Donkos" data-img="assets/images/gangs/donkos.png">
             <img src="assets/images/gangs/donkos.png" alt="Die Donkos" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Die Donkos</h3>
-              <p class="gang-card__text">Genetische Ausfälle, deren Deprivation in gewalttätiges, schmerzresistentes Verhalten kippt.</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Die Donkos</span>
+              <span class="gang-card__text">Genetische Ausfälle, deren Deprivation in gewalttätiges, schmerzresistentes Verhalten kippt.</span>
+            </span>
+            <span class="gang-card__full" hidden>Ein Donko wird man nicht, man ist es – ein reinrassiger Gendefekt, gezüchtet aus Generationen puren Versagens. Doch wehe, die Revolution bricht aus: Der plötzliche Entzug täglicher Demütigung verursacht einen Kurzschluss in ihrem Inzucht-geplagten Erbgut und entfesselt einen schmerzresistenten, geifernden Wahnsinn, der alles und jeden daggert.</span>
+          </button>
 
-          <article class="gang-card">
+          <button type="button" class="gang-card" id="gang-cobras" data-modal data-title="Die Cobras" data-img="assets/images/gangs/cobras.png">
             <img src="assets/images/gangs/cobras.png" alt="Die Cobras" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Die Cobras</h3>
-              <p class="gang-card__text">Bodensatz der Gesellschaft auf zwei Rädern. Motorrad-Gang, angetrieben von Selbsthass.</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Die Cobras</span>
+              <span class="gang-card__text">Bodensatz der Gesellschaft auf zwei Rädern. Motorrad-Gang, angetrieben von Selbsthass.</span>
+            </span>
+            <span class="gang-card__full" hidden>Die Cobras sind der Bodensatz der Gesellschaft auf zwei Rädern – eine fahrende Selbsthilfegruppe für Perverse, Säufer und gescheiterte Existenzen, deren Traum von der Harley an einem knatternden Mofa verreckt ist. Sie prügeln sich nicht aus Ehre, sondern aus purem, unverfälschtem Selbsthass. Jeder Schlag ins Gesicht ist für sie eine willkommene Buße für ihr verkorkstes Leben, jeder Tritt eine Bestätigung, dass sie es verdient haben.</span>
+          </button>
 
-          <article class="gang-card">
+          <button type="button" class="gang-card" id="gang-hipster" data-modal data-title="Die Hipster" data-img="assets/images/gangs/hipster.png">
             <img src="assets/images/gangs/hipster.png" alt="Die Hipster" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Die Hipster</h3>
-              <p class="gang-card__text">Wohlhabende Urbaniten auf der Jagd nach „authentischer, post-industrieller Gewalterfahrung".</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Die Hipster</span>
+              <span class="gang-card__text">Wohlhabende Urbaniten auf der Jagd nach „authentischer, post-industrieller Gewalterfahrung".</span>
+            </span>
+            <span class="gang-card__full" hidden>Frisch aus ihren überteuerten Lofts gekrochen, betreten sie perfekt gestylt den Hof mit dem Ziel, eine authentische, post-industrielle Gewalterfahrung zu erleben. Ein gezielter Schlag ins Gesicht beendet ihren Ausflug in die Realität meist abrupt und schickt sie weinend zurück zu ihrem Soja-Latte und ihrem nachhaltigen Lifestyle-Blog.</span>
+          </button>
 
-          <article class="gang-card">
+          <button type="button" class="gang-card" id="gang-vertriebler" data-modal data-title="Die Vertriebler" data-img="assets/images/gangs/vertriebler.png">
             <img src="assets/images/gangs/vertriebler.png" alt="Die Vertriebler" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Die Vertriebler</h3>
-              <p class="gang-card__text">Verkäufer, die Gewalt als Networking-Tool sehen und mitten im Kampf das Verkaufsgespräch halten.</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Die Vertriebler</span>
+              <span class="gang-card__text">Verkäufer, die Gewalt als Networking-Tool sehen und mitten im Kampf das Verkaufsgespräch halten.</span>
+            </span>
+            <span class="gang-card__full" hidden>Mit einem Lächeln, das so falsch ist wie ihre angebliche Rendite, stolpern die Vertriebler in den Kampf. Sie halten den Hinterhof für ein exklusives Networking-Event und versuchen dir, während du ihnen die Nase brichst, noch ihre synergetische Big-Data-Cloud-Plattform mit KI-Power aufzuschwatzen. Ihre einzige Stärke ist ihre Unfähigkeit aufzugeben, denn jeder Niederschlag könnte ja eine neue Kundenbeziehung einleiten.</span>
+          </button>
 
-          <article class="gang-card">
+          <button type="button" class="gang-card" id="gang-hautzen" data-modal data-title="Die Hautzen" data-img="assets/images/gangs/hautzen.png">
             <img src="assets/images/gangs/hautzen.png" alt="Die Hautzen" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Die Hautzen</h3>
-              <p class="gang-card__text">Alkoholgespülte Sportclub-Mitglieder mit Schmerztoleranz jenseits jeder Vernunft.</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Die Hautzen</span>
+              <span class="gang-card__text">Alkoholgespülte Sportclub-Mitglieder mit Schmerztoleranz jenseits jeder Vernunft.</span>
+            </span>
+            <span class="gang-card__full" hidden>Für den Verein, für den Suff, für die Schlägerei! Die Hautzen sind eine grölende Masse aus Vereinstreue, Promille und Pyrotechnik, deren Blutkreislauf zu 80 % aus billigem Dosenbier besteht. Sie sind keine talentierten Kämpfer, aber ihre vom Alkohol betäubten Körper können eine unmenschliche Menge an Schlägen einstecken, bevor sie überhaupt merken, dass sie bluten. Ihre Taktik: Torkeln, Pöbeln, Umfallen.</span>
+          </button>
 
-          <article class="gang-card">
+          <button type="button" class="gang-card" id="gang-bunniez" data-modal data-title="Die Bunniez" data-img="assets/images/gangs/bunniez.png">
             <img src="assets/images/gangs/bunniez.png" alt="Die Bunniez" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Die Bunniez</h3>
-              <p class="gang-card__text">Weibliche Spezialeinheit auf Rachefeldzug gegen das Patriarchat. Keine Gefangenen.</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Die Bunniez</span>
+              <span class="gang-card__text">Weibliche Spezialeinheit auf Rachefeldzug gegen das Patriarchat. Keine Gefangenen.</span>
+            </span>
+            <span class="gang-card__full" hidden>Die Bunniez sind keine Gäng, sie sind die Kammerjägerinnen der Schöpfung – eine Spezialeinheit, ausgesandt, um den männlichen Unrat aus dem Genpool zu spülen und der Sausage Party bei Bronko-Donko den Stecker zu ziehen. Ihr heiliger Rachefeldzug gegen das Patriarchat endet erst, wenn sie jedem verdammten Kerl am Hof nicht nur die Eier abgerissen, sondern seine jämmerliche Seele anschließend als Aschenbecher für ihre Siegeszigarette missbraucht haben.</span>
+          </button>
 
-          <article class="gang-card">
+          <button type="button" class="gang-card" id="gang-moneyboyz" data-modal data-title="Die Moneyboyz" data-img="assets/images/gangs/moneyboyz.png">
             <img src="assets/images/gangs/moneyboyz.png" alt="Die Moneyboyz" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Die Moneyboyz</h3>
-              <p class="gang-card__text">Dubai-affine Hustler, die ihre innere Leere in Gang-Gewalt kanalisieren.</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Die Moneyboyz</span>
+              <span class="gang-card__text">Dubai-affine Hustler, die ihre innere Leere in Gang-Gewalt kanalisieren.</span>
+            </span>
+            <span class="gang-card__full" hidden>Aus ihrem in Dubai geleasten Mufti-Lambo verkaufen die Moneyboyz Losern wie dir das Mindset zum großen Cash. Doch hinter dem gebleachten Grinsen lauert eine von Koks und Selbsthass zerfressene Leere. Am Hof wird ihre innere Fäulnis zur blutigen Gangsta-Performance und jeder kassierte Schlag zu neuem, authentischem Insta-Content. Erwarte keinen fairen Kampf, sondern einen verzweifelten Bastard, der dir mit gebrochenem Kiefer noch die letzten Fifty Cent zockt, um sein Business zu skalieren.</span>
+          </button>
 
-          <article class="gang-card">
+          <button type="button" class="gang-card" id="gang-bronkos" data-modal data-title="Die Bronkos" data-img="assets/images/gangs/bronkos.png">
             <img src="assets/images/gangs/bronkos.png" alt="Die Bronkos" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Die Bronkos</h3>
-              <p class="gang-card__text">Die alten Motorrad-Götter. Wer ihnen begegnet, hat den Hof schon verloren.</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Die Bronkos</span>
+              <span class="gang-card__text">Die alten Motorrad-Götter. Wer ihnen begegnet, hat den Hof schon verloren.</span>
+            </span>
+            <span class="gang-card__full" hidden>Die Bronkos sind keine Gang, sie sind die verdammte Endabrechnung auf zwei Rädern – der letzte rostfreie Nagel im Sarg der Menschlichkeit. Jeder ihrer Schläge ist ein verdammter Schöpfungsakt, der aus deinem Gesicht eine völlig neue Form des Todes erschafft. Sie sind die alten Götter des Hofs, die dem Teufel persönlich die Innereien durch seinen Hals hochgezogen haben, weil er behauptet hat, das Böse erfunden zu haben. Ein Tritt von ihnen beendet keine Diskussion, er beendet deine scheiß Existenz.</span>
+          </button>
         </div>
       </div>
     </section>
@@ -134,40 +151,46 @@
     <section class="section">
       <div class="section__inner">
         <h2 class="section__title section__title--yellow">Berüchtigte Schläger am Hof</h2>
-        <p class="section__lead">Erste Einzelgänger wurden in der Nähe des Hofes gesichtet.</p>
+        <p class="section__lead">Erste Einzelgänger wurden in der Nähe des Hofes gesichtet. Tipp antippen für die ganze Geschichte.</p>
+
+        <div class="video video--feature" data-video="UgK8dLSQhNw" data-title="Berüchtigte Schläger am Hof"></div>
 
         <div class="character-grid">
-          <article class="gang-card gang-card--character">
+          <button type="button" class="gang-card gang-card--character" data-modal data-title="Burning Günther" data-img="assets/images/placeholder.svg" data-video="do0vyuxLGm4">
             <img src="assets/images/placeholder.svg" alt="" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Burning Günther</h3>
-              <p class="gang-card__text">Aus Wut geschmiedet, vor nichts in Acht — außer vor Mutters Anrufen wegen Pfandflaschen.</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Burning Günther</span>
+              <span class="gang-card__text">Aus Wut geschmiedet, vor nichts in Acht — außer vor Mutters Anrufen wegen Pfandflaschen.</span>
+            </span>
+            <span class="gang-card__full" hidden>Manche Leute behaupten, Burning Günther wurde nicht geboren, sondern in einem Vulkan aus Kerosin und Zorn geschmiedet. Er putzt sich die Zähne mit Schießpulver, gurgelt mit Benzin und seine liebste Einschlafgeschichte ist das Geräusch eines lichterloh brennenden Gebäudes. Man sagt, der Teufel selbst habe einmal Günthers Seele kaufen wollen, doch dieser riss ihm daraufhin kurzerhand die Innereien durch den Hals, einfach weil er es kann. Fünf Minuten später gehörte ihm die legendäre Harley des Teufels – Hells Bells! Es gibt absolut nichts auf dieser Welt, wovor sich dieser Mann fürchtet – außer seiner Mamm, die jeden Morgen anruft, sobald sie wieder halbwegs ausgenüchtert ist, und wissen will, ob Günther endlich ihr Karlskrone Dosenpfand bei Aldi zurückgegeben hat.</span>
+          </button>
 
-          <article class="gang-card gang-card--character">
+          <button type="button" class="gang-card gang-card--character" data-modal data-title="Der Bänker" data-img="assets/images/placeholder.svg">
             <img src="assets/images/placeholder.svg" alt="" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Der Bänker</h3>
-              <p class="gang-card__text">Ehemaliger Anarchist, kaputtgegangen am Banking. Kanalisiert seinen Groll auf der Straße.</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Der Bänker</span>
+              <span class="gang-card__text">Ehemaliger Anarchist, kaputtgegangen am Banking. Kanalisiert seinen Groll auf der Straße.</span>
+            </span>
+            <span class="gang-card__full" hidden>Peter Grundigs Rebellion aka „Der Bänker" endete nicht mit einem Knall, sondern mit einem Arbeitsvertrag. Jahrelang war der Rauterstrauchpark sein Reich, Dosenbier sein Nektar und die Tür der Volksbank sein Pissoir. Doch als der Filialleiter ihm in einem Anfall von Personalnot eine Krawatte um den Hals warf, kapitulierte der Möchtegern-Anarchist unter dem Vorwand, das System von innen zu stürzen. Heute, 25 Jahre und unzählige verkaufte Bausparverträge später, kanalisiert er den puren Hass auf sein eigenes verlogenes Leben in die brutalen Schlägereien der Burbacher Cobras.</span>
+          </button>
 
-          <article class="gang-card gang-card--character">
+          <button type="button" class="gang-card gang-card--character" id="char-kose" data-modal data-title="Dr. nar. Kose" data-img="assets/images/placeholder.svg" data-video="hIUdhkB30m0">
             <img src="assets/images/placeholder.svg" alt="" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Dr. nar. Kose</h3>
-              <p class="gang-card__text">Narkotika-Spezialist. Nutzt Drogen als Waffe und als Buße für eigene Verderbtheit.</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Dr. nar. Kose</span>
+              <span class="gang-card__text">Narkotika-Spezialist. Nutzt Drogen als Waffe und als Buße für eigene Verderbtheit.</span>
+            </span>
+            <span class="gang-card__full" hidden>Tagsüber spritzt der narzisstisch veranlagte Dr. nar. Kose im Keller des Krankenhauses der Warmherzigen Brüder nicht nur Narkosemittel, sondern lebt auch seine perversen Mutterkomplexe an wehrlosen PatientInnen aus. Als Ausgleich für seine Schandtaten und weil ihn im echten Leben jeder verachtet, kommt dieser Versager in den Hof, um sich auf einer vollen Dosis Ketamin von anderen zu Brei schlagen zu lassen – seine ganz persönliche Buße. Doch wehe, die Revolution bricht aus und stellt die Regeln auf den Kopf: Dann erwacht das Monster in ihm, er betäubt seine Opfer übelst mit seinen krassesten Drogen und zückt das Skalpell, um den dann wehrlosen Körpern seiner Gegner im Hof endlich die Aufmerksamkeit zu schenken, nach der er sich so sehnt.</span>
+          </button>
 
-          <article class="gang-card gang-card--character">
+          <button type="button" class="gang-card gang-card--character" id="char-duenenwolf" data-modal data-title="Der Dünenwolf" data-img="assets/images/placeholder.svg">
             <img src="assets/images/placeholder.svg" alt="" class="gang-card__image" loading="lazy" />
-            <div class="gang-card__body">
-              <h3 class="gang-card__title">Der Dünenwolf</h3>
-              <p class="gang-card__text">Identitäts-Wandler. Sucht Wahrheit durch Gewalt und psychologische Auflösung.</p>
-            </div>
-          </article>
+            <span class="gang-card__body">
+              <span class="gang-card__title">Der Dünenwolf</span>
+              <span class="gang-card__text">Identitäts-Wandler. Sucht Wahrheit durch Gewalt und psychologische Auflösung.</span>
+            </span>
+            <span class="gang-card__full" hidden>Seine inneren Dämonen trieben den Dünenwolf auf eine wahnsinnige Suche nach der ultimativen Wahrheit. Diese endete nach 63 Dosen Bier und wochenlanger Dehydration in der südfranzösischen Dünenlandschaft. Dort löste sich sein Verstand nicht auf – er kristallisierte sich zu einer einzigen, furchtbaren Singularität: Jede Identität ist die meine, und jedes Wesen abseits des blutigen Pfades der Wahrheit nur eine Hülle, die darauf wartet, aufgeschlitzt und getragen zu werden. Doch hinter dieser gottgleichen Fähigkeit lauert die jämmerliche Realität: Der Dünenwolf selbst existiert nicht mehr. Unter all den Masken ist nichts als ein zitternder Niemand, ein kampfunfähiges Echo in der Wüste, das erst in fremder Haut zum Monster wird. Sein ganzer Hass gilt Dr. nar. Kose, dem ultimativen Feind seiner Wahrheit, der als letzte Blasphemie auf seinem Pfad unbedingt zerstört werden muss.</span>
+          </button>
         </div>
       </div>
     </section>
@@ -199,6 +222,18 @@
     <p class="site-footer__legal">© 2026 Bronko-Donko · Spielidee: Sebastian Boos &amp; Roland Heck</p>
     <p class="site-footer__easter"><a href="story/">Wie alles begann …</a></p>
   </footer>
+
+  <!-- Detail-Overlay (Gängs & Charaktere) -->
+  <div class="modal" id="detail-modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button type="button" class="modal__close" data-close aria-label="Schließen">&times;</button>
+      <img class="modal__image" src="" alt="" />
+      <h2 class="modal__title" id="modal-title"></h2>
+      <div class="modal__body"></div>
+      <div class="modal__video"></div>
+    </div>
+  </div>
 
   <script src="js/app.js"></script>
 </body>
