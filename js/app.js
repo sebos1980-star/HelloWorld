@@ -132,18 +132,18 @@ const BD_VIDEO = (() => {
     }
 
     videoEl.innerHTML = '';
-    if (videoId) {
-      const v = document.createElement('div');
-      videoEl.appendChild(v);
-      BD_VIDEO.mount(v, videoId, title, { ratio: videoRatio, autoplay: true });
-    }
-
     dialog.classList.toggle('modal__dialog--has-video', !!videoId);
     lastFocused = document.activeElement;
     modal.hidden = false;
     document.body.classList.add('modal-open');
     dialog.scrollTop = 0;
     modal.querySelector('.modal__close').focus();
+
+    if (videoId) {
+      const v = document.createElement('div');
+      videoEl.appendChild(v);
+      BD_VIDEO.mount(v, videoId, title, { ratio: videoRatio, autoplay: true });
+    }
   }
 
   function close() {

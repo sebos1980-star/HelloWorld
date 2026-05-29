@@ -917,6 +917,11 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ---- Poster-Variante der Video-Facade (Bild + großes Play-Symbol) ---- */
+.video--poster {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .video--poster .video__btn--poster {
   gap: var(--space-3);
   color: #fff;
