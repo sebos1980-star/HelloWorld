@@ -38,6 +38,17 @@ const BD_VIDEO = (() => {
     container.classList.add('video');
     if (opts.ratio === 'portrait') container.classList.add('video--portrait');
 
+    if (opts.autoplay) {
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&origin=https://sebos1980-star.github.io';
+      iframe.title = title || 'YouTube-Video';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      container.classList.add('is-playing');
+      container.appendChild(iframe);
+      return;
+    }
+
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.setAttribute('aria-label', 'Video laden und abspielen' + (title ? ': ' + title : ''));
@@ -124,7 +135,7 @@ const BD_VIDEO = (() => {
     if (videoId) {
       const v = document.createElement('div');
       videoEl.appendChild(v);
-      BD_VIDEO.mount(v, videoId, title, { ratio: videoRatio });
+      BD_VIDEO.mount(v, videoId, title, { ratio: videoRatio, autoplay: true });
     }
 
     dialog.classList.toggle('modal__dialog--has-video', !!videoId);
