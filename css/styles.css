@@ -777,9 +777,11 @@ strong { color: #fff; }
   max-width: 680px;
   max-height: 90vh;
   overflow-y: auto;
+  scrollbar-width: none;
   padding: var(--space-8);
   box-shadow: 0 0 48px var(--color-red-glow);
 }
+.modal__dialog::-webkit-scrollbar { display: none; }
 .modal__close {
   position: absolute;
   top: var(--space-2);

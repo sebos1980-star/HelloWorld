@@ -60,7 +60,7 @@ const BD_VIDEO = (() => {
 
     btn.addEventListener('click', () => {
       const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0';
       iframe.title = title || 'YouTube-Video';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       iframe.allowFullscreen = true;
@@ -105,7 +105,7 @@ const BD_VIDEO = (() => {
     const videoRatio = trigger.dataset.videoRatio || '';
 
     titleEl.textContent = title;
-    if (img) {
+    if (img && !videoId) {
       imgEl.src = img;
       imgEl.alt = title;
       imgEl.hidden = false;
