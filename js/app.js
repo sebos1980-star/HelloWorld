@@ -55,12 +55,12 @@ const BD_VIDEO = (() => {
       btn.innerHTML =
         '<span class="video__play" aria-hidden="true">&#9654;</span>' +
         '<span class="video__label">Video ansehen</span>' +
-        '<span class="video__hint">Lädt YouTube (youtube-nocookie.com) erst nach Klick.</span>';
+        '<span class="video__hint">Lädt YouTube erst nach Klick.</span>';
     }
 
     btn.addEventListener('click', () => {
       const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0&origin=https://sebos1980-star.github.io';
+      iframe.src = 'https://www.youtube.com/embed/' + id + '?rel=0&origin=https://sebos1980-star.github.io';
       iframe.title = title || 'YouTube-Video';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       iframe.allowFullscreen = true;
