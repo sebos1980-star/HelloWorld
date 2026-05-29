@@ -40,7 +40,7 @@ const BD_VIDEO = (() => {
 
     if (opts.autoplay) {
       const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&mute=1&rel=0&origin=https://sebos1980-star.github.io';
+      iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id + '&rel=0&origin=https://sebos1980-star.github.io';
       iframe.title = title || 'YouTube-Video';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       iframe.allowFullscreen = true;
