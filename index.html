@@ -22,7 +22,6 @@
       <nav class="nav" id="nav" aria-label="Hauptmenü">
         <ul class="nav__list">
           <li><a class="nav__link is-active" href="./">Home</a></li>
-          <li><a class="nav__link" href="#gangs">Die Gängs</a></li>
           <li><a class="nav__link" href="hofregeln/">Hofregeln</a></li>
         </ul>
       </nav>
@@ -34,7 +33,11 @@
   <main id="main">
 
     <section class="hero">
-      <img src="assets/images/hero-title.png" alt="Bronko-Donko – drei Gestalten vom Hinterhof, einer auf dem Motorrad" class="hero__image" width="1536" height="1024" />
+      <div class="hero__media"
+           data-video="UM5QFXOrGIE"
+           data-title="Bronko-Donko – Trailer"
+           data-poster="assets/images/hero-title.png"
+           style="background-image:url('assets/images/hero-title.png')"></div>
       <h1 class="hero__tagline">Die Legenden vom Hinterhof</h1>
       <p class="hero__meta">Ein Kartenspiel für 2 bis 4 Spieler · Spielidee: Sebastian Boos &amp; Roland Heck</p>
       <a href="hofregeln/" class="hero__cta">Spielregeln &rsaquo;</a>
@@ -52,14 +55,6 @@
           der Letzte bist, der noch Karten auf der Hand hält. Denn dies ist das knallharte Kartenspiel
           für 2 bis 4 Spieler, bei dem der Verlierer mehr als nur seine besten Karten abgibt.
         </p>
-        <p class="section__lead">
-          Irgendwo nördlich der Alpen in einem gottverlassenen Hinterhof, wo das Gesetz nichts zu
-          melden hat, entbrennt wieder einmal der legendäre Kampf um die sagenumwobenen Bronko-Orden.
-          Bei Gestank von billigem Bier, Angstschweiß und Desinfektionsmittel treffen sich wieder die
-          skrupellosesten Anführer und die berüchtigtsten Gängs des Landes. Ihr einziges Ziel: In
-          diesem Drecksloch lange genug überleben, um sich am Ende der brutalen Schlägereien zum
-          König des Hofes zu krönen.
-        </p>
       </div>
     </section>
 
@@ -68,7 +63,7 @@
     <section class="section" id="gangs">
       <div class="section__inner">
         <h2 class="section__title">Diese Gängs versammeln sich am Hof</h2>
-        <p class="section__lead">Acht Truppen, acht Geschichten, ein Ziel: den Bronko-Orden holen. Tipp antippen für die ganze Geschichte.</p>
+        <p class="section__lead">Acht Truppen, acht Geschichten, ein Ziel: den Bronko-Orden holen.</p>
 
         <div class="gang-grid">
           <button type="button" class="gang-card" id="gang-donkos" data-modal data-title="Die Donkos" data-img="assets/images/gangs/donkos.png">
@@ -151,13 +146,11 @@
     <section class="section">
       <div class="section__inner">
         <h2 class="section__title section__title--yellow">Berüchtigte Schläger am Hof</h2>
-        <p class="section__lead">Erste Einzelgänger wurden in der Nähe des Hofes gesichtet. Tipp antippen für die ganze Geschichte.</p>
-
-        <div class="video video--feature" data-video="UgK8dLSQhNw" data-title="Berüchtigte Schläger am Hof"></div>
+        <p class="section__lead">Erste Einzelgänger wurden in der Nähe des Hofes gesichtet.</p>
 
         <div class="character-grid">
-          <button type="button" class="gang-card gang-card--character" data-modal data-title="Burning Günther" data-img="assets/images/placeholder.svg" data-video="do0vyuxLGm4">
-            <img src="assets/images/placeholder.svg" alt="" class="gang-card__image" loading="lazy" />
+          <button type="button" class="gang-card gang-card--character" data-modal data-title="Burning Günther" data-img="assets/images/cards/burning-guenther-staerke.png" data-video="UgK8dLSQhNw" data-video-ratio="portrait">
+            <img src="assets/images/cards/burning-guenther-staerke.png" alt="Burning Günther – Kämpferkarte" class="gang-card__image" loading="lazy" />
             <span class="gang-card__body">
               <span class="gang-card__title">Burning Günther</span>
               <span class="gang-card__text">Aus Wut geschmiedet, vor nichts in Acht — außer vor Mutters Anrufen wegen Pfandflaschen.</span>
@@ -165,8 +158,8 @@
             <span class="gang-card__full" hidden>Manche Leute behaupten, Burning Günther wurde nicht geboren, sondern in einem Vulkan aus Kerosin und Zorn geschmiedet. Er putzt sich die Zähne mit Schießpulver, gurgelt mit Benzin und seine liebste Einschlafgeschichte ist das Geräusch eines lichterloh brennenden Gebäudes. Man sagt, der Teufel selbst habe einmal Günthers Seele kaufen wollen, doch dieser riss ihm daraufhin kurzerhand die Innereien durch den Hals, einfach weil er es kann. Fünf Minuten später gehörte ihm die legendäre Harley des Teufels – Hells Bells! Es gibt absolut nichts auf dieser Welt, wovor sich dieser Mann fürchtet – außer seiner Mamm, die jeden Morgen anruft, sobald sie wieder halbwegs ausgenüchtert ist, und wissen will, ob Günther endlich ihr Karlskrone Dosenpfand bei Aldi zurückgegeben hat.</span>
           </button>
 
-          <button type="button" class="gang-card gang-card--character" data-modal data-title="Der Bänker" data-img="assets/images/placeholder.svg">
-            <img src="assets/images/placeholder.svg" alt="" class="gang-card__image" loading="lazy" />
+          <button type="button" class="gang-card gang-card--character" data-modal data-title="Der Bänker" data-img="assets/images/cards/der-baenker-staerke.png" data-video="do0vyuxLGm4" data-video-ratio="portrait">
+            <img src="assets/images/cards/der-baenker-staerke.png" alt="Der Bänker – Kämpferkarte" class="gang-card__image" loading="lazy" />
             <span class="gang-card__body">
               <span class="gang-card__title">Der Bänker</span>
               <span class="gang-card__text">Ehemaliger Anarchist, kaputtgegangen am Banking. Kanalisiert seinen Groll auf der Straße.</span>
@@ -174,8 +167,8 @@
             <span class="gang-card__full" hidden>Peter Grundigs Rebellion aka „Der Bänker" endete nicht mit einem Knall, sondern mit einem Arbeitsvertrag. Jahrelang war der Rauterstrauchpark sein Reich, Dosenbier sein Nektar und die Tür der Volksbank sein Pissoir. Doch als der Filialleiter ihm in einem Anfall von Personalnot eine Krawatte um den Hals warf, kapitulierte der Möchtegern-Anarchist unter dem Vorwand, das System von innen zu stürzen. Heute, 25 Jahre und unzählige verkaufte Bausparverträge später, kanalisiert er den puren Hass auf sein eigenes verlogenes Leben in die brutalen Schlägereien der Burbacher Cobras.</span>
           </button>
 
-          <button type="button" class="gang-card gang-card--character" id="char-kose" data-modal data-title="Dr. nar. Kose" data-img="assets/images/placeholder.svg" data-video="hIUdhkB30m0">
-            <img src="assets/images/placeholder.svg" alt="" class="gang-card__image" loading="lazy" />
+          <button type="button" class="gang-card gang-card--character" id="char-kose" data-modal data-title="Dr. nar. Kose" data-img="assets/images/cards/dr-nar-kose.png" data-video="p-vQGrBozOw" data-video-ratio="portrait">
+            <img src="assets/images/cards/dr-nar-kose.png" alt="Dr. nar. Kose – Spielkarte" class="gang-card__image" loading="lazy" />
             <span class="gang-card__body">
               <span class="gang-card__title">Dr. nar. Kose</span>
               <span class="gang-card__text">Narkotika-Spezialist. Nutzt Drogen als Waffe und als Buße für eigene Verderbtheit.</span>
@@ -183,8 +176,8 @@
             <span class="gang-card__full" hidden>Tagsüber spritzt der narzisstisch veranlagte Dr. nar. Kose im Keller des Krankenhauses der Warmherzigen Brüder nicht nur Narkosemittel, sondern lebt auch seine perversen Mutterkomplexe an wehrlosen PatientInnen aus. Als Ausgleich für seine Schandtaten und weil ihn im echten Leben jeder verachtet, kommt dieser Versager in den Hof, um sich auf einer vollen Dosis Ketamin von anderen zu Brei schlagen zu lassen – seine ganz persönliche Buße. Doch wehe, die Revolution bricht aus und stellt die Regeln auf den Kopf: Dann erwacht das Monster in ihm, er betäubt seine Opfer übelst mit seinen krassesten Drogen und zückt das Skalpell, um den dann wehrlosen Körpern seiner Gegner im Hof endlich die Aufmerksamkeit zu schenken, nach der er sich so sehnt.</span>
           </button>
 
-          <button type="button" class="gang-card gang-card--character" id="char-duenenwolf" data-modal data-title="Der Dünenwolf" data-img="assets/images/placeholder.svg">
-            <img src="assets/images/placeholder.svg" alt="" class="gang-card__image" loading="lazy" />
+          <button type="button" class="gang-card gang-card--character" id="char-duenenwolf" data-modal data-title="Der Dünenwolf" data-img="assets/images/cards/duenenwolf.png" data-video="hIUdhkB30m0" data-video-ratio="portrait">
+            <img src="assets/images/cards/duenenwolf.png" alt="Der Dünenwolf – Spielkarte" class="gang-card__image" loading="lazy" />
             <span class="gang-card__body">
               <span class="gang-card__title">Der Dünenwolf</span>
               <span class="gang-card__text">Identitäts-Wandler. Sucht Wahrheit durch Gewalt und psychologische Auflösung.</span>
@@ -198,12 +191,22 @@
     <hr class="divider" />
 
     <section class="section">
+      <div class="section__inner section__inner--narrow">
+        <h2 class="section__title section__title--yellow">Noch ein Vorgeschmack</h2>
+        <p class="section__lead">Zweiter Trailer, frisch vom Hof — kurz, laut und schmutzig.</p>
+        <div class="video video--portrait" data-video="m8oat9p0oX0" data-title="Bronko-Donko – Teaser"></div>
+      </div>
+    </section>
+
+    <hr class="divider divider--yellow" />
+
+    <section class="section">
       <div class="section__inner">
         <div class="cta-block">
           <h2 class="cta-block__title">Bereit für den Hof?</h2>
           <p class="cta-block__text">
             Die ganzen Hofregeln — Spielvorbereitung, Ablauf, Abrechnung, fiese Tricks.
-            Auch praktisch fürs Spiel am Tisch.
+            Alles, was du brauchst, um den Hof zu regieren.
           </p>
           <a href="hofregeln/" class="cta-block__button">Hofregeln lesen &rsaquo;</a>
         </div>

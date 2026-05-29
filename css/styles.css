@@ -791,9 +791,12 @@ strong { color: #fff; }
 .modal__close:hover,
 .modal__close:focus-visible { color: var(--color-red); outline: none; }
 .modal__image {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  max-height: 70vh;
+  margin: 0 auto var(--space-4);
+  display: block;
   border-radius: 2px;
-  margin-bottom: var(--space-4);
   background: #000;
 }
 .modal__image[hidden] { display: none; }
@@ -861,3 +864,180 @@ body.modal-open { overflow: hidden; }
   .gang-card:focus-visible { transform: none; }
   .video__btn:hover .video__play { transform: none; }
 }
+
+/* ============================================
+   HERO-MEDIA (Titelbild → Trailer)
+   ============================================ */
+.hero__media {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto var(--space-8);
+  aspect-ratio: 16 / 9;
+  background-color: transparent;
+  background-position: center 36%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  cursor: pointer;
+  /* Weiche Vignette: Ränder werden dunkler und gehen nahtlos in Schwarz über */
+  -webkit-mask-image: radial-gradient(ellipse 82% 92% at 50% 42%, #000 44%, transparent 93%);
+          mask-image: radial-gradient(ellipse 82% 92% at 50% 42%, #000 44%, transparent 93%);
+}
+/* Läuft der Trailer: klare 16:9-Fläche, ohne Maske und ohne Poster */
+.hero__media.is-playing {
+  -webkit-mask-image: none;
+          mask-image: none;
+  background-image: none !important;
+}
+
+/* ---- Poster-Variante der Video-Facade (Bild + großes Play-Symbol) ---- */
+.video--poster .video__btn--poster {
+  gap: var(--space-3);
+  color: #fff;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);
+}
+.video--poster .video__play {
+  width: 84px;
+  height: 84px;
+  background: rgba(0, 0, 0, 0.3);
+  border-color: #fff;
+  box-shadow: 0 0 26px rgba(0, 0, 0, 0.5);
+}
+.video--poster .video__btn--poster:hover,
+.video--poster .video__btn--poster:focus-visible { color: #fff; }
+.video--poster .video__btn--poster:hover .video__play {
+  background: var(--color-red);
+  border-color: var(--color-red);
+  box-shadow: 0 0 34px var(--color-red-glow);
+}
+.video--poster .video__label {
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---- Hochformat-Videos (YouTube-Shorts: 2. Trailer & Charakter-Clips) ---- */
+.video--portrait {
+  aspect-ratio: 9 / 16;
+  max-width: 340px;
+}
+
+/* schmalerer Innenbereich (z. B. Teaser-Block) */
+.section__inner--narrow { max-width: 760px; }
+
+/* ============================================
+   CHARAKTER-KARTEN: Hochkant-Kartengrafik
+   ============================================ */
+.gang-card--character .gang-card__image {
+  aspect-ratio: 384 / 573;
+  object-fit: contain;
+  background: #050505;
+  background-image: none;
+}
+
+/* ============================================
+   KARTEN-GRAFIK IM REGELWERK (Kapitel 1)
+   ============================================ */
+.card-figures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  justify-content: center;
+  margin: var(--space-6) 0;
+}
+.card-figure {
+  flex: 0 1 220px;
+  max-width: 240px;
+  margin: 0;
+  text-align: center;
+}
+.card-figure img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-silver-faint);
+}
+.card-figure figcaption {
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+  color: var(--color-silver-dim);
+  font-style: italic;
+}
+
+/* ============================================
+   GÄNG-HIERARCHIE (Kapitel 8, ersetzt die Tabelle)
+   ============================================ */
+.hierarchy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: var(--space-6) 0;
+}
+.hier-row {
+  display: grid;
+  grid-template-columns: 2.2rem 84px 1fr;
+  align-items: center;
+  gap: var(--space-4);
+  background: #0a0a0a;
+  border: 1px solid var(--color-silver-faint);
+  border-left: 4px solid var(--color-red);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  transition: border-color var(--transition-med), box-shadow var(--transition-med), transform var(--transition-med);
+}
+.hier-row:hover {
+  border-color: var(--color-red);
+  box-shadow: 0 0 20px var(--color-red-glow);
+  transform: translateX(4px);
+}
+.hier-row__rank {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--color-red);
+  text-align: center;
+}
+.hier-row__logo {
+  width: 84px;
+  height: 48px;
+  object-fit: contain;
+  background: #000;
+  border-radius: 3px;
+}
+.hier-row__name { font-family: var(--font-display); font-size: 1.15rem; color: #fff; letter-spacing: 0.02em; }
+.hier-row__sub {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-silver-dim);
+  letter-spacing: 0;
+  margin-top: 2px;
+}
+.hier-row__stats { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); margin-top: var(--space-2); }
+.hier-stat { font-size: 0.8rem; color: var(--color-silver-dim); white-space: nowrap; }
+.hier-stat b { color: #fff; font-family: var(--font-display); font-weight: 400; margin-left: 3px; }
+.hier-row--special { border-left-color: var(--color-yellow); }
+.hier-row--special .hier-row__rank { color: var(--color-yellow); font-size: 1.3rem; }
+.hier-row--special .hier-row__logo { height: 64px; }
+@media (max-width: 560px) {
+  .hier-row { grid-template-columns: 1.8rem 60px 1fr; gap: var(--space-3); }
+  .hier-row__logo { width: 60px; height: 40px; }
+  .hier-row--special .hier-row__logo { height: 54px; }
+}
+
+/* ============================================
+   SCROLL-REVEAL (dezentes Einblenden)
+   ============================================ */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hier-row:hover { transform: none; }
+}
+
+/* In-Text-Anker im Regelwerk nicht unter dem Sticky-Header verschwinden lassen */
+.hofregeln-section [id] { scroll-margin-top: 90px; }

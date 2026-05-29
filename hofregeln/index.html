@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patua+One&family=Nunito:wght@400;700&display=swap" />
   <link rel="stylesheet" href="../css/styles.css" />
+  <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
 </head>
 <body>
   <a href="#main" class="skip-link">Zum Inhalt springen</a>
@@ -22,7 +23,6 @@
       <nav class="nav" id="nav" aria-label="Hauptmenü">
         <ul class="nav__list">
           <li><a class="nav__link" href="../">Home</a></li>
-          <li><a class="nav__link" href="../#gangs">Die Gängs</a></li>
           <li><a class="nav__link is-active" href="./">Hofregeln</a></li>
         </ul>
       </nav>
@@ -40,33 +40,44 @@
     <nav class="toc" aria-label="Inhalt">
       <div class="toc__title">Inhalt</div>
       <ul class="toc__list">
-        <li><a class="toc__link" href="#kapitel1">1 · Spielmaterial &amp; Karten-Anatomie</a></li>
+        <li><a class="toc__link" href="#kapitel1">1 · Spielmaterial</a></li>
         <li><a class="toc__link" href="#kapitel2">2 · Spielvorbereitung</a></li>
         <li><a class="toc__link" href="#kapitel3">3 · Der Spielablauf</a></li>
         <li><a class="toc__link" href="#kapitel4">4 · Rundenende &amp; Abrechnung</a></li>
         <li><a class="toc__link" href="#kapitel5">5 · Das Donko-Leben</a></li>
         <li><a class="toc__link" href="#kapitel6">6 · Fiese Tricks &amp; Die Tischmitte</a></li>
         <li><a class="toc__link" href="#kapitel7">7 · Die Ungebetenen Gäste</a></li>
-        <li><a class="toc__link" href="#kapitel8">8 · Schnellreferenz: Gäng-Hierarchie</a></li>
+        <li><a class="toc__link" href="#kapitel8">8 · Die Hackordnung am Hof</a></li>
       </ul>
     </nav>
 
     <section class="hofregeln-section" id="kapitel1">
-      <h2>1 · Das Spielmaterial &amp; Die Karten-Anatomie</h2>
+      <h2>1 · Das Spielmaterial</h2>
       <p>Bronko-Donko verwendet zwei komplett getrennte Kartentypen. Sie unterscheiden sich grundlegend durch ihre Rückseite:</p>
       <ul>
-        <li><strong>Die Kämpfer (34 Karten):</strong> Haben das <strong>B&amp;D-Logo</strong> auf der Rückseite. Das sind deine Handkarten, die du während der Schlägerei ausspielst.</li>
-        <li><strong>Die Schläger (8 Karten pro Farbe):</strong> Haben eine <strong>Faust</strong> auf der Rückseite. Sie liegen von Anfang an offen vor dir auf dem Tisch, bilden deine <strong>Schlägertruppe</strong> und repräsentieren deine Lebenspunkte (LP).</li>
+        <li id="kaempfer"><strong>Die Kämpfer (34 Karten):</strong> Haben das <strong>B&amp;D-Logo</strong> auf der Rückseite. Das sind deine Handkarten, die du während der Schlägerei ausspielst.</li>
+        <li id="schlaeger"><strong>Die Schläger (8 Karten pro Farbe):</strong> Haben eine <strong>Faust</strong> auf der Rückseite. Sie liegen von Anfang an offen vor dir auf dem Tisch, bilden deine <strong>Schlägertruppe</strong> und repräsentieren deine Lebenspunkte (LP).</li>
       </ul>
 
       <h3>Die Merkmale einer Kämpferkarte</h3>
       <p>Jede Kämpferkarte verfügt über wichtige Informationen, die du für den Kampf kennen musst:</p>
       <ul>
-        <li><strong>Die Stärke &amp; Gäng (Zahl oben links):</strong> Der Wert im normalen Kampf (0 bis 8). Wichtig, wenn du die Karten auf der Hand hältst: Diese reguläre Stärke ist immer vollflächig farbig ausgefüllt. Jede Stärke bildet eine eigene Gäng (z. B. sind alle 4er-Karten die „Vertriebler“, alle 8er-Karten die „Bronko“). Von jeder Gäng gibt es exakt 4 Karten im Spiel.</li>
-        <li><strong>Die Farbe:</strong> Es gibt 4 Farben (<span class="t-red">Rot</span>, <span class="t-yel">Gelb</span>, <span class="t-grn">Grün</span>, <span class="t-blu">Blau</span>) für die Standardkarten sowie Weiß für die beiden Spezialkarten. Von jeder Gäng (Stärke 1 bis 8) gibt es genau eine Karte pro Farbe. Farbe und Stärke sind entscheidend, um bestimmte <a class="rule-link" href="#kapitel3">Formationen</a> zu bilden.</li>
-        <li><strong>Der Schaden (oben rechts):</strong> Abgebildet in einem gezackten Symbol in der jeweiligen Kartenfarbe. Die Zahl zeigt an, wie viele Lebenspunkte dich diese Karte am Ende der Runde kostet. Karten ohne dieses Symbol richten keinen Schaden an.</li>
-        <li><strong>Die Revolutionsstärke (Zahl unten rechts):</strong> Diese Zahl steht auf dem Kopf und ist nur als feine Kontur gezeichnet. Sie wird erst wichtig, wenn im Hof eine <a class="rule-link" href="#revolution">Revolution</a> ausbricht und du deine Handkarten umdrehen musst.</li>
+        <li id="staerke"><strong>Die Stärke &amp; Gäng (Zahl oben links):</strong> Der Wert im normalen Kampf (0 bis 8). Wichtig, wenn du die Karten auf der Hand hältst: Diese reguläre Stärke ist immer vollflächig farbig ausgefüllt. Jede Stärke bildet eine eigene Gäng (z. B. sind alle 4er-Karten die „Vertriebler“, alle 8er-Karten die „Bronko“). Von jeder Gäng gibt es exakt 4 Karten im Spiel.</li>
+        <li><strong>Die Farbe:</strong> Es gibt 4 Farben (<span class="t-red">Rot</span>, <span class="t-yel">Gelb</span>, <span class="t-grn">Grün</span>, <span class="t-blu">Blau</span>) für die Standardkarten sowie Weiß für die beiden Spezialkarten. Von jeder Gäng (Stärke 1 bis 8) gibt es genau eine Karte pro Farbe. Farbe und Stärke sind entscheidend, um bestimmte <a class="rule-link" href="#formationen">Formationen</a> zu bilden.</li>
+        <li id="schaden"><strong>Der Schaden (oben rechts):</strong> Abgebildet in einem gezackten Symbol in der jeweiligen Kartenfarbe. Die Zahl zeigt an, wie viele Lebenspunkte dich diese Karte am Ende der Runde kostet. Karten ohne dieses Symbol richten keinen Schaden an.</li>
+        <li id="revolutionsstaerke"><strong>Die Revolutionsstärke (Zahl unten rechts):</strong> Diese Zahl steht auf dem Kopf und ist nur als feine Kontur gezeichnet. Sie wird erst wichtig, wenn im Hof eine <a class="rule-link" href="#revolution">Revolution</a> ausbricht und du deine Handkarten umdrehen musst.</li>
       </ul>
+
+      <div class="card-figures">
+        <figure class="card-figure">
+          <img src="../assets/images/cards/burning-guenther-staerke.png" alt="Kämpferkarte „Burning Günther“ – Stärke 8 der Bronko" loading="lazy" />
+          <figcaption>Kämpfer-Karte: Stärke &amp; Gäng oben links, Schaden oben rechts, Revolutionsstärke (auf dem Kopf) unten rechts.</figcaption>
+        </figure>
+        <figure class="card-figure">
+          <img src="../assets/images/cards/burning-guenther-lp.png" alt="Schläger-Karte „Burning Günther“ – 20 Lebenspunkte" loading="lazy" />
+          <figcaption>Schläger-Karte: dieselbe Figur, zeigt die Lebenspunkte (hier 20 LP).</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="hofregeln-section" id="kapitel2">
@@ -75,14 +86,14 @@
       <ol>
         <li><strong>Den Hof aufräumen:</strong> Legt die <strong>Donko-Haufen-Karte</strong>, die <strong>Bronko-Blut-Karte</strong> und die 3 <a class="rule-link" href="#kapitel5">Fluchtkarten</a> in die Tischmitte. Legt auch die 5 <strong>Bronko-Orden-Karten</strong> als Vorrat bereit (sie dienen dazu, auch längere Turniere wie z. B. ein „Best-of-5“ spielen zu können, um den wahren König zu ermitteln).</li>
         <li><strong>Die Weste bereitlegen:</strong> Legt die beidseitig bedruckte Weste-Karte mit der Seite <a class="rule-link" href="#pflasterzoll">„mit Weste kämpfen“</a> nach oben gut sichtbar für alle aus.</li>
-        <li><strong>Die Schlägertruppe aufstellen:</strong> Jeder Spieler wählt eine Farbe, nimmt sich die 8 dazugehörigen Schläger-Karten (Faust-Rückseite) und legt sie offen vor sich ab. Die Schläger haben die Werte <strong>2, 4, 6, 8, 10, 12, 15 und 20 LP</strong> und ergeben zusammengerechnet eine Start-Gesundheit von <strong>77 Lebenspunkten</strong>.</li>
-        <li><strong>Kämpfer anheuern:</strong> Mischt die 34 Kämpferkarten (B&amp;D-Logo). Bei 2 oder 3 Spielern erhält jeder <strong>10 Karten</strong> verdeckt auf die Hand. Bei 4 Spielern erhält jeder <strong>8 Karten</strong>. Alle restlichen Kämpferkarten sind für diese Schlägerei aus dem Spiel.</li>
+        <li><strong>Die Schlägertruppe aufstellen:</strong> Jeder Spieler wählt eine Farbe, nimmt sich die 8 dazugehörigen <a class="rule-link" href="#schlaeger">Schläger-Karten</a> (Faust-Rückseite) und legt sie offen vor sich ab. Die Schläger haben die Werte <strong>2, 4, 6, 8, 10, 12, 15 und 20 LP</strong> und ergeben zusammengerechnet eine Start-Gesundheit von <strong>77 Lebenspunkten</strong>.</li>
+        <li><strong>Kämpfer anheuern:</strong> Mischt die 34 <a class="rule-link" href="#kaempfer">Kämpferkarten</a> (B&amp;D-Logo). Bei 2 oder 3 Spielern erhält jeder <strong>10 Karten</strong> verdeckt auf die Hand. Bei 4 Spielern erhält jeder <strong>8 Karten</strong>. Alle restlichen Kämpferkarten sind für diese Schlägerei aus dem Spiel.</li>
       </ol>
     </section>
 
     <section class="hofregeln-section" id="kapitel3">
       <h2>3 · Der Spielablauf</h2>
-      <p>Ein gesamtes Match besteht aus mehreren <strong>Schlägereien</strong> (vollständige Runden vom Austeilen bis zur <a class="rule-link" href="#kapitel4">Abrechnung</a>). Das Ziel jeder Schlägerei ist es, als erster Spieler alle eigenen Handkarten loszuwerden. Eine Schlägerei unterteilt sich in viele kleine <strong>Schlagabtausche</strong> (Stiche auf dem Tisch). Wer einen Schlagabtausch eröffnet, hat <strong>das Kommando</strong> auf dem Hof und bestimmt die Regeln für diesen Moment.</p>
+      <p id="schlagabtausch">Ein gesamtes Match besteht aus mehreren <strong>Schlägereien</strong> (vollständige Runden vom Austeilen bis zur <a class="rule-link" href="#kapitel4">Abrechnung</a>). Das Ziel jeder Schlägerei ist es, als erster Spieler alle eigenen Handkarten loszuwerden. Eine Schlägerei unterteilt sich in viele kleine <strong>Schlagabtausche</strong> (Stiche auf dem Tisch). Wer einen Schlagabtausch eröffnet, hat <strong>das Kommando</strong> auf dem Hof und bestimmt die Regeln für diesen Moment.</p>
 
       <h3>Das erste Kommando (Schlägerei ohne Donko)</h3>
       <p>Befindet sich die Donko-Haufen-Karte in der allerersten Runde des Matches (oder nach einer erfolgreichen Flucht) in der Tischmitte, ist der Hof herrenlos. In dieser <strong>Schlägerei ohne Donko</strong> gilt:</p>
@@ -96,12 +107,12 @@
         <strong>Hinweis:</strong> Befindet sich die Donko-Haufen-Karte bereits im festen Besitz eines Spielers, entfällt diese Startregel. Der Donko hat dann automatisch das erste Kommando, sobald der <a class="rule-link" href="#verrat">Kartentausch</a> zu Rundenbeginn stattgefunden hat. Er darf den ersten Schlagabtausch mit einer <strong>beliebigen Formation seiner Wahl</strong> eröffnet und muss nicht seine schwächste Karte spielen.
       </div>
 
-      <h3>Die Formationen</h3>
+      <h3 id="formationen">Die Formationen</h3>
       <p>Wer das Kommando hat, eröffnet den Schlagabtausch mit einer von drei Formationen und legt damit den Typ und die exakte Kartenanzahl fest:</p>
       <ul>
-        <li><strong>Solo:</strong> Eine einzelne Kämpferkarte (z. B. <span class="c-num c-red">7</span>).</li>
-        <li><strong>Mob:</strong> Zwei bis vier Kämpferkarten mit <em>exakt derselben Stärke</em> (z. B. ein 3er-Mob <span class="c-num c-blu">5</span>-<span class="c-num c-yel">5</span>-<span class="c-num c-grn">5</span>).</li>
-        <li><strong>Straße:</strong> Mindestens drei Kämpferkarten der gleichen Farbe in ununterbrochener, aufsteigender Reihenfolge (z. B. <span class="c-num c-grn">3</span>-<span class="c-num c-grn">4</span>-<span class="c-num c-grn">5</span>). Du kannst auch den Dünenwolf als Joker nutzen, dargestellt als weißes Fragezeichen (z. B. <span class="c-num c-red">3</span>-<span class="c-num c-wht">?</span>-<span class="c-num c-red">5</span>-<span class="c-num c-red">6</span>).</li>
+        <li id="solo"><strong>Solo:</strong> Eine einzelne Kämpferkarte (z. B. <span class="c-num c-red">7</span>).</li>
+        <li id="mob"><strong>Mob:</strong> Zwei bis vier Kämpferkarten mit <em>exakt derselben Stärke</em> (z. B. ein 3er-Mob <span class="c-num c-blu">5</span>-<span class="c-num c-yel">5</span>-<span class="c-num c-grn">5</span>).</li>
+        <li id="strasse"><strong>Straße:</strong> Mindestens drei Kämpferkarten der gleichen Farbe in ununterbrochener, aufsteigender Reihenfolge (z. B. <span class="c-num c-grn">3</span>-<span class="c-num c-grn">4</span>-<span class="c-num c-grn">5</span>). Du kannst auch den Dünenwolf als Joker nutzen, dargestellt als weißes Fragezeichen (z. B. <span class="c-num c-red">3</span>-<span class="c-num c-wht">?</span>-<span class="c-num c-red">5</span>-<span class="c-num c-red">6</span>).</li>
       </ul>
 
       <h3>Die Kampf-Aktionen</h3>
@@ -187,22 +198,22 @@
       </ul>
 
       <h3 id="verrat">Der Verrat</h3>
-      <p>Zu Beginn jeder neuen Schlägerei (direkt nachdem der Donko die Karten gemischt und ausgeteilt hat) findet der Kartentausch statt: Der Donko muss seine zwei stärksten Handkarten offen an den amtierenden Bronko übergeben. Ausschlaggebend ist hierbei die reine <strong>Basis-Stärke</strong> (Zahl oben links). Besitzt der Donko mehrere Karten mit demselben höchsten Stärkewert, wählt er die Farbe selbst aus. Der Bronko reicht ihm im Gegenzug zwei beliebige Handkarten seiner Wahl offen zurück. Der Bronko hat hierbei die freie Wahl und darf dem Donko auch eine oder beide der soeben erhaltenen Karten direkt wieder zurückgeben. Spezialkarten (die <a class="rule-link" href="#kapitel7">Ungebetenen Gäste</a>) sind vom Verrat grundsätzlich ausgeschlossen.</p>
+      <p>Zu Beginn jeder neuen Schlägerei (direkt nachdem der Donko die Karten gemischt und ausgeteilt hat) findet der Kartentausch statt: Der Donko muss seine zwei stärksten Handkarten offen an den amtierenden Bronko übergeben. Ausschlaggebend ist hierbei die reine <strong><a class="rule-link" href="#staerke">Basis-Stärke</a></strong> (Zahl oben links). Besitzt der Donko mehrere Karten mit demselben höchsten Stärkewert, wählt er die Farbe selbst aus. Der Bronko reicht ihm im Gegenzug zwei beliebige Handkarten seiner Wahl offen zurück. Der Bronko hat hierbei die freie Wahl und darf dem Donko auch eine oder beide der soeben erhaltenen Karten direkt wieder zurückgeben. Spezialkarten (die <a class="rule-link" href="#kapitel7">Ungebetenen Gäste</a>) sind vom Verrat grundsätzlich ausgeschlossen.</p>
     </section>
 
     <section class="hofregeln-section" id="kapitel6">
       <h2>6 · Fiese Tricks, Eskalation &amp; Die Tischmitte</h2>
 
       <h3 id="revolution">Revolution</h3>
-      <p>Wird von einem Spieler ein <strong>4er-Mob</strong> ausgespielt, zettelt er eine Revolution an.</p>
+      <p>Wird von einem Spieler ein <strong><a class="rule-link" href="#mob">4er-Mob</a></strong> ausgespielt, zettelt er eine Revolution an.</p>
       <ul>
-        <li><strong>Die Revolution vereiteln:</strong> Jeder im Uhrzeigersinn folgende Spieler kann die Revolution im selben Schlagabtausch abwehren, indem er einen <em>stärkeren 4er-Mob</em> drüberlegt. Dann läuft das Spiel ganz normal weiter.
+        <li><strong>Die Revolution vereiteln:</strong> Jeder im Uhrzeigersinn folgende Spieler kann die Revolution im selben <a class="rule-link" href="#schlagabtausch">Schlagabtausch</a> abwehren, indem er einen <em>stärkeren 4er-Mob</em> drüberlegt. Dann läuft das Spiel ganz normal weiter.
           <div class="example-box">
             <strong class="example-title">Beispiel für eine vereitelte Revolution:</strong>
             Spieler A will den Hof stürzen und legt einen <strong>4er-Mob der Stärke 5</strong> (<span class="c-num c-blu">5</span>-<span class="c-num c-yel">5</span>-<span class="c-num c-grn">5</span>-<span class="c-num c-red">5</span>). Spieler B sitzt direkt daneben und kontert sofort mit einem stärkeren <strong>4er-Mob der Stärke 7</strong> (<span class="c-num c-blu">7</span>-<span class="c-num c-yel">7</span>-<span class="c-num c-grn">7</span>-<span class="c-num c-red">7</span>). Die Revolution ist im Keim erstickt; das Spiel läuft normal weiter, ohne dass die Karten gedreht werden.
           </div>
         </li>
-        <li><strong>Erfolg &amp; Neue Stärken:</strong> Wird der 4er-Mob nicht geschlagen, bricht die Revolution aus. Alle Spieler müssen ihre Handkarten sofort um 180 Grad drehen. Ab jetzt gelten ausschließlich die auf dem Kopf stehenden <strong>Revolutionsstärken (unten rechts)</strong> als neue Basis-Stärken für alle Mobs und Straßen. Eine Revolution bleibt so lange aktiv, bis die Schlägerei endet oder eine erneute Revolution die Stärken wieder umkehrt.
+        <li><strong>Erfolg &amp; Neue Stärken:</strong> Wird der 4er-Mob nicht geschlagen, bricht die Revolution aus. Alle Spieler müssen ihre Handkarten sofort um 180 Grad drehen. Ab jetzt gelten ausschließlich die auf dem Kopf stehenden <strong><a class="rule-link" href="#revolutionsstaerke">Revolutionsstärken</a> (unten rechts)</strong> als neue Basis-Stärken für alle Mobs und Straßen. Eine Revolution bleibt so lange aktiv, bis die Schlägerei endet oder eine erneute Revolution die Stärken wieder umkehrt.
           <div class="example-box">
             <strong class="example-title">Beispiel für eine erfolgreiche Revolution:</strong>
             Niemand kann den 4er-Mob schlagen. Alle müssen ihre Karten auf den Kopf drehen. Wer eben noch schwache <strong>Donkos (alte Stärke 1)</strong> auf der Hand hatte, hält nun plötzlich unboxbare Kampfmaschinen mit der <strong>neuen Revolutionsstärke 7 <span class="faust-icon">✊</span></strong> in den Händen.
@@ -233,7 +244,7 @@
 
       <h3>Dr. nar Kose (Stärke 0 / Revolutionsstärke 8 / 20 Schaden)</h3>
       <ul>
-        <li><strong>Einzelgänger:</strong> Darf ausschließlich als einzelne Solo-Karte gespielt werden und kann niemals Teil eines Mobs oder einer Straße sein.</li>
+        <li><strong>Einzelgänger:</strong> Darf ausschließlich als einzelne <a class="rule-link" href="#solo">Solo-Karte</a> gespielt werden und kann niemals Teil eines <a class="rule-link" href="#mob">Mobs</a> oder einer <a class="rule-link" href="#strasse">Straße</a> sein.</li>
         <li><strong>Unantastbar:</strong> Da die Basis-Stärke 0 und die Revolutionsstärke 8 bei Standardkarten nicht existieren, kann diese Karte im normalen Spielverlauf niemals weggeboxt werden.</li>
         <li><strong>Chaot:</strong> Bei einer aktiven Revolution wird der Doktor mit der Revolutionsstärke 8 zur mächtigsten Karte im Spiel.</li>
         <li><strong>Risiko:</strong> Verbleibt die Karte am Rundenende auf der Hand, erleidet der Spieler 20 Schadenspunkte.</li>
@@ -241,7 +252,7 @@
 
       <h3>Der Dünenwolf (Joker / 20 Schaden)</h3>
       <ul>
-        <li><strong>Herdentier:</strong> Darf niemals als einzelne Solo-Karte ausgespielt werden. Er muss immer Teil eines Mobs oder einer Straße sein.</li>
+        <li><strong>Herdentier:</strong> Darf niemals als einzelne <a class="rule-link" href="#solo">Solo-Karte</a> ausgespielt werden. Er muss immer Teil eines <a class="rule-link" href="#mob">Mobs</a> oder einer <a class="rule-link" href="#strasse">Straße</a> sein.</li>
         <li><strong>Opfer:</strong> Kann vor Rundenbeginn geopfert werden, um den Bronko zu provozieren und den <a class="rule-link" href="#pflasterzoll">Pflaster-Zoll</a> auszulösen.</li>
         <li><strong>Gestaltwandler:</strong> Ersetzt jede beliebige Farbe und Stärke (1 bis 8), um eine Kombination zu vervollständigen. Er kann nicht die Gestalt von Dr. nar Kose annehmen.</li>
         <li><strong>Klauen:</strong> Liegt der Dünenwolf in einer offenen Formation auf dem Tisch und ein beliebiger Spieler hält exakt die reale Karte auf der Hand, die der Wolf gerade ersetzt, darf dieser Spieler den Wolf austauschen. Diese Aktion darf auch außerhalb der regulären Zugreihenfolge durchgeführt werden. Der Spieler ruft „Wolfsblut!“, fügt die echte Karte der Formation hinzu und nimmt den Dünenwolf auf die Hand. Der geklaute Wolf ist für den restlichen Schlagabtausch gesperrt und darf erst im nächsten Schlagabtausch wieder eingesetzt werden.</li>
@@ -250,92 +261,138 @@
     </section>
 
     <section class="hofregeln-section" id="kapitel8">
-      <h2>8 · Schnellreferenz: Die Gäng-Hierarchie</h2>
-      <p class="hofregeln-hint">Tipp: Tippe einen Gäng-Namen an, um ihre Geschichte auf der Startseite zu öffnen.</p>
-      <div class="table-wrap">
-        <table class="rules-table">
-          <thead>
-            <tr>
-              <th class="center-text">Anzahl im Deck</th>
-              <th>Name der Gäng</th>
-              <th class="center-text">Basis-Stärke</th>
-              <th class="center-text">Revolutions-Stärke</th>
-              <th class="center-text">Schaden</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="center-text">4x</td>
-              <td><a class="rule-link" href="../#gang-bronkos">Bronko</a> <span class="faust-icon">✊</span></td>
-              <td class="center-text">8</td>
-              <td class="center-text">0</td>
-              <td class="center-text">11</td>
-            </tr>
-            <tr>
-              <td class="center-text">4x</td>
-              <td><a class="rule-link" href="../#gang-moneyboyz">Moneyboy</a></td>
-              <td class="center-text">7</td>
-              <td class="center-text">1</td>
-              <td class="center-text">4</td>
-            </tr>
-            <tr>
-              <td class="center-text">4x</td>
-              <td><a class="rule-link" href="../#gang-bunniez">Bunny</a></td>
-              <td class="center-text">6</td>
-              <td class="center-text">2</td>
-              <td class="center-text">3</td>
-            </tr>
-            <tr>
-              <td class="center-text">4x</td>
-              <td><a class="rule-link" href="../#gang-hautzen">Hautz</a></td>
-              <td class="center-text">5</td>
-              <td class="center-text">3</td>
-              <td class="center-text">2</td>
-            </tr>
-            <tr>
-              <td class="center-text">4x</td>
-              <td><a class="rule-link" href="../#gang-vertriebler">Vertriebler</a></td>
-              <td class="center-text">4</td>
-              <td class="center-text">4</td>
-              <td class="center-text">10</td>
-            </tr>
-            <tr>
-              <td class="center-text">4x</td>
-              <td><a class="rule-link" href="../#gang-hipster">Hipster</a></td>
-              <td class="center-text">3</td>
-              <td class="center-text">5</td>
-              <td class="center-text">0</td>
-            </tr>
-            <tr>
-              <td class="center-text">4x</td>
-              <td><a class="rule-link" href="../#gang-cobras">Cobra</a></td>
-              <td class="center-text">2</td>
-              <td class="center-text">6</td>
-              <td class="center-text">0</td>
-            </tr>
-            <tr>
-              <td class="center-text">4x</td>
-              <td><a class="rule-link" href="../#gang-donkos">Donko</a> <span class="faust-icon">✊</span></td>
-              <td class="center-text">1</td>
-              <td class="center-text">7</td>
-              <td class="center-text">0</td>
-            </tr>
-            <tr>
-              <td class="center-text">1x</td>
-              <td><a class="rule-link" href="../#char-kose">Dr. nar Kose</a></td>
-              <td class="center-text">0</td>
-              <td class="center-text">8</td>
-              <td class="center-text">20</td>
-            </tr>
-            <tr>
-              <td class="center-text">1x</td>
-              <td><a class="rule-link" href="../#char-duenenwolf">Dünenwolf</a></td>
-              <td class="center-text">Joker</td>
-              <td class="center-text">Joker</td>
-              <td class="center-text">20</td>
-            </tr>
-          </tbody>
-        </table>
+      <h2>8 · Die Hackordnung am Hof</h2>
+      <p>Vom gefürchteten Bronko ganz oben bis zum Donko ganz unten — und den zwei ungebetenen Gästen, die sich an keine Hofregeln halten.</p>
+      <div class="hierarchy">
+        <div class="hier-row reveal">
+          <div class="hier-row__rank">8</div>
+          <img class="hier-row__logo" src="../assets/images/gangs/bronkos.png" alt="" loading="lazy" />
+          <div class="hier-row__main">
+            <span class="hier-row__name"><a class="rule-link" href="../#gang-bronkos">Bronko</a> <span class="faust-icon" title="Unschlagbar – trägt die Faust">✊</span></span>
+            <span class="hier-row__sub">Die Bronkos · 4 Karten im Deck</span>
+            <div class="hier-row__stats">
+              <span class="hier-stat">Revolutions-Stärke <b>0</b></span>
+              <span class="hier-stat">Schaden <b>11</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hier-row reveal">
+          <div class="hier-row__rank">7</div>
+          <img class="hier-row__logo" src="../assets/images/gangs/moneyboyz.png" alt="" loading="lazy" />
+          <div class="hier-row__main">
+            <span class="hier-row__name"><a class="rule-link" href="../#gang-moneyboyz">Moneyboy</a></span>
+            <span class="hier-row__sub">Die Moneyboyz · 4 Karten im Deck</span>
+            <div class="hier-row__stats">
+              <span class="hier-stat">Revolutions-Stärke <b>1</b></span>
+              <span class="hier-stat">Schaden <b>4</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hier-row reveal">
+          <div class="hier-row__rank">6</div>
+          <img class="hier-row__logo" src="../assets/images/gangs/bunniez.png" alt="" loading="lazy" />
+          <div class="hier-row__main">
+            <span class="hier-row__name"><a class="rule-link" href="../#gang-bunniez">Bunny</a></span>
+            <span class="hier-row__sub">Die Bunniez · 4 Karten im Deck</span>
+            <div class="hier-row__stats">
+              <span class="hier-stat">Revolutions-Stärke <b>2</b></span>
+              <span class="hier-stat">Schaden <b>3</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hier-row reveal">
+          <div class="hier-row__rank">5</div>
+          <img class="hier-row__logo" src="../assets/images/gangs/hautzen.png" alt="" loading="lazy" />
+          <div class="hier-row__main">
+            <span class="hier-row__name"><a class="rule-link" href="../#gang-hautzen">Hautz</a></span>
+            <span class="hier-row__sub">Die Hautzen · 4 Karten im Deck</span>
+            <div class="hier-row__stats">
+              <span class="hier-stat">Revolutions-Stärke <b>3</b></span>
+              <span class="hier-stat">Schaden <b>2</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hier-row reveal">
+          <div class="hier-row__rank">4</div>
+          <img class="hier-row__logo" src="../assets/images/gangs/vertriebler.png" alt="" loading="lazy" />
+          <div class="hier-row__main">
+            <span class="hier-row__name"><a class="rule-link" href="../#gang-vertriebler">Vertriebler</a></span>
+            <span class="hier-row__sub">Die Vertriebler · 4 Karten im Deck</span>
+            <div class="hier-row__stats">
+              <span class="hier-stat">Revolutions-Stärke <b>4</b></span>
+              <span class="hier-stat">Schaden <b>10</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hier-row reveal">
+          <div class="hier-row__rank">3</div>
+          <img class="hier-row__logo" src="../assets/images/gangs/hipster.png" alt="" loading="lazy" />
+          <div class="hier-row__main">
+            <span class="hier-row__name"><a class="rule-link" href="../#gang-hipster">Hipster</a></span>
+            <span class="hier-row__sub">Die Hipster · 4 Karten im Deck</span>
+            <div class="hier-row__stats">
+              <span class="hier-stat">Revolutions-Stärke <b>5</b></span>
+              <span class="hier-stat">Schaden <b>0</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hier-row reveal">
+          <div class="hier-row__rank">2</div>
+          <img class="hier-row__logo" src="../assets/images/gangs/cobras.png" alt="" loading="lazy" />
+          <div class="hier-row__main">
+            <span class="hier-row__name"><a class="rule-link" href="../#gang-cobras">Cobra</a></span>
+            <span class="hier-row__sub">Die Cobras · 4 Karten im Deck</span>
+            <div class="hier-row__stats">
+              <span class="hier-stat">Revolutions-Stärke <b>6</b></span>
+              <span class="hier-stat">Schaden <b>0</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hier-row reveal">
+          <div class="hier-row__rank">1</div>
+          <img class="hier-row__logo" src="../assets/images/gangs/donkos.png" alt="" loading="lazy" />
+          <div class="hier-row__main">
+            <span class="hier-row__name"><a class="rule-link" href="../#gang-donkos">Donko</a> <span class="faust-icon" title="In der Revolution unschlagbar – trägt die Faust">✊</span></span>
+            <span class="hier-row__sub">Die Donkos · 4 Karten im Deck</span>
+            <div class="hier-row__stats">
+              <span class="hier-stat">Revolutions-Stärke <b>7</b></span>
+              <span class="hier-stat">Schaden <b>0</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hier-row hier-row--special reveal">
+          <div class="hier-row__rank">0</div>
+          <img class="hier-row__logo" src="../assets/images/cards/dr-nar-kose.png" alt="" loading="lazy" />
+          <div class="hier-row__main">
+            <span class="hier-row__name"><a class="rule-link" href="../#char-kose">Dr. nar Kose</a></span>
+            <span class="hier-row__sub">Ungebetener Gast · 1 Karte · nur Solo</span>
+            <div class="hier-row__stats">
+              <span class="hier-stat">Revolutions-Stärke <b>8</b></span>
+              <span class="hier-stat">Schaden <b>20</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hier-row hier-row--special reveal">
+          <div class="hier-row__rank">?</div>
+          <img class="hier-row__logo" src="../assets/images/cards/duenenwolf.png" alt="" loading="lazy" />
+          <div class="hier-row__main">
+            <span class="hier-row__name"><a class="rule-link" href="../#char-duenenwolf">Dünenwolf</a></span>
+            <span class="hier-row__sub">Ungebetener Gast · 1 Karte · nur Mob/Straße</span>
+            <div class="hier-row__stats">
+              <span class="hier-stat">Stärke <b>Joker</b></span>
+              <span class="hier-stat">Schaden <b>20</b></span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

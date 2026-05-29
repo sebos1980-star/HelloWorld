@@ -31,18 +31,33 @@
 const BD_VIDEO = (() => {
   // Baut in `container` eine Klick-Fläche; erst beim Klick wird das
   // youtube-nocookie-iframe geladen. Vorher kein Request an Google.
-  function mount(container, id, title) {
+  // opts: { poster?: <Bild-URL → Poster-Variante>, ratio?: 'portrait', label?: <Text> }
+  function mount(container, id, title, opts) {
     if (!id) return;
+    opts = opts || {};
     container.classList.add('video');
-    container.innerHTML = '';
+    if (opts.ratio === 'portrait') container.classList.add('video--portrait');
+
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'video__btn';
     btn.setAttribute('aria-label', 'Video laden und abspielen' + (title ? ': ' + title : ''));
-    btn.innerHTML =
-      '<span class="video__play" aria-hidden="true">&#9654;</span>' +
-      '<span class="video__label">Video ansehen</span>' +
-      '<span class="video__hint">Lädt YouTube (youtube-nocookie.com) erst nach Klick.</span>';
+
+    if (opts.poster) {
+      // Poster-Variante: Bild als Hintergrund, nur Play-Symbol + Label darüber.
+      container.classList.add('video--poster');
+      container.style.backgroundImage = "url('" + opts.poster + "')";
+      btn.className = 'video__btn video__btn--poster';
+      btn.innerHTML =
+        '<span class="video__play" aria-hidden="true">&#9654;</span>' +
+        '<span class="video__label">' + (opts.label || 'Video ansehen') + '</span>';
+    } else {
+      btn.className = 'video__btn';
+      btn.innerHTML =
+        '<span class="video__play" aria-hidden="true">&#9654;</span>' +
+        '<span class="video__label">Video ansehen</span>' +
+        '<span class="video__hint">Lädt YouTube (youtube-nocookie.com) erst nach Klick.</span>';
+    }
+
     btn.addEventListener('click', () => {
       const iframe = document.createElement('iframe');
       iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
@@ -50,14 +65,20 @@ const BD_VIDEO = (() => {
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       iframe.allowFullscreen = true;
       container.innerHTML = '';
+      container.classList.add('is-playing'); // entfernt u. a. die Poster-Maske
       container.appendChild(iframe);
     });
+
+    container.innerHTML = '';
     container.appendChild(btn);
   }
 
-  // Statische Facade-Container auf der Seite aufbauen
+  // Statische Facade-Container aufbauen (inkl. optionalem Poster / Hochformat)
   document.querySelectorAll('.video[data-video]').forEach((el) => {
-    mount(el, el.dataset.video, el.dataset.title);
+    mount(el, el.dataset.video, el.dataset.title, {
+      poster: el.dataset.poster,
+      ratio: el.dataset.ratio,
+    });
   });
 
   return { mount };
@@ -81,6 +102,7 @@ const BD_VIDEO = (() => {
     const fullEl = trigger.querySelector('.gang-card__full');
     const fullText = fullEl ? fullEl.textContent.trim() : '';
     const videoId = trigger.dataset.video || '';
+    const videoRatio = trigger.dataset.videoRatio || '';
 
     titleEl.textContent = title;
     if (img) {
@@ -102,7 +124,7 @@ const BD_VIDEO = (() => {
     if (videoId) {
       const v = document.createElement('div');
       videoEl.appendChild(v);
-      BD_VIDEO.mount(v, videoId, title);
+      BD_VIDEO.mount(v, videoId, title, { ratio: videoRatio });
     }
 
     lastFocused = document.activeElement;
@@ -158,4 +180,34 @@ const BD_VIDEO = (() => {
   }
   window.addEventListener('hashchange', openFromHash);
   openFromHash();
+})();
+
+/* ---- Hero-Trailer: Titelbild als Poster, Klick lädt den Trailer ---- */
+(() => {
+  const hero = document.querySelector('.hero__media[data-video]');
+  if (!hero) return;
+  BD_VIDEO.mount(hero, hero.dataset.video, hero.dataset.title, {
+    poster: hero.dataset.poster,
+    label: 'Trailer ansehen',
+  });
+})();
+
+/* ---- Scroll-Reveal: blendet .reveal-Elemente beim Hereinscrollen ein ---- */
+(() => {
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+  els.forEach((el) => io.observe(el));
 })();
