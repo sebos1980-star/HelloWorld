@@ -60,7 +60,7 @@ const BD_VIDEO = (() => {
 
     btn.addEventListener('click', () => {
       const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0';
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0&origin=https://sebos1980-star.github.io';
       iframe.title = title || 'YouTube-Video';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       iframe.allowFullscreen = true;
