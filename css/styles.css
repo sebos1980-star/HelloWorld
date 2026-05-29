@@ -806,6 +806,27 @@ strong { color: #fff; }
 .modal__body p { font-size: 1.05rem; margin: 0; }
 body.modal-open { overflow: hidden; }
 
+/* Charakter-Modal: Video links, Text rechts */
+.modal__dialog--has-video {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  grid-template-areas:
+    "video title"
+    "video body";
+  column-gap: var(--space-6);
+  align-items: start;
+}
+.modal__dialog--has-video .modal__video { grid-area: video; }
+.modal__dialog--has-video .modal__title { grid-area: title; }
+.modal__dialog--has-video .modal__body  { grid-area: body; }
+.modal__dialog--has-video .modal__video .video { margin: 0; max-width: none; }
+@media (max-width: 480px) {
+  .modal__dialog--has-video {
+    grid-template-columns: 1fr;
+    grid-template-areas: "video" "title" "body";
+  }
+}
+
 /* ============================================
    YOUTUBE-FACADE (lädt erst nach Klick — Privacy)
    ============================================ */

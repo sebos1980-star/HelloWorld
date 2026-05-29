@@ -127,6 +127,7 @@ const BD_VIDEO = (() => {
       BD_VIDEO.mount(v, videoId, title, { ratio: videoRatio });
     }
 
+    dialog.classList.toggle('modal__dialog--has-video', !!videoId);
     lastFocused = document.activeElement;
     modal.hidden = false;
     document.body.classList.add('modal-open');
