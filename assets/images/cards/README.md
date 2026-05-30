@@ -24,6 +24,9 @@ Die zwei Spezial-Charaktere haben nur **eine** Karte (kein LP-Pendant):
 
 - `bronko-blut.png`  – Bronko-Blut-Karte (geht an den Rundensieger)
 - `donko-haufen.png` – Donko-Haufen-Karte (markiert den Donko)
-- `mit-weste.png`    – Weste-Karte („Mit Weste kämpfen!")
+- `mit-weste.png`    – Weste-Karte, Seite „Mit Weste kämpfen!"
+- `ohne-weste.png`   – Weste-Karte, Seite „Ohne Weste kämpfen!"
 - `flucht-1.png` … `flucht-3.png` – die drei Fluchtkarten
 - `orden.png`, `orden-2.png` … `orden-5.png` – die fünf Bronko-Orden
+- `rueckseite.png`   – Kämpfer-Rückseite (B&D-Logo)
+- `rueckseite-lp.png`– Schläger-Rückseite (Faust)

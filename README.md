@@ -12,8 +12,11 @@ Statische Website für das Kartenspiel **Bronko-Donko**. Deployt über GitHub Pa
 /story/                        Backgroundstory (nur Footer-Link)
 /404.html                      404-Seite
 /css/styles.css                Globales Stylesheet
-/js/app.js                     Nav, Video-Facade (YouTube), Charakter-Modals
-/assets/images/                Logo, Hero-Bild, Karten- und Gang-Grafiken
+/js/app.js                     Nav, Video-Facade (selbst gehostete MP4s), Charakter-Modals
+/assets/images/                Logo, Hero-Bild, Gang-Grafiken
+/assets/images/cards/          Charakter-Karten (…-staerke / …-lp)
+/assets/images/cards/special/  Token-/Spezialkarten (Weste, Rückseiten, Orden, Flucht …)
+/assets/videos/                Selbst gehostete MP4s (Trailer, Teaser, Charakter-Clips, Tutorial)
 ```
 
 ## Lokal testen

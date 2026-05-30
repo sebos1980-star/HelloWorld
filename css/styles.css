@@ -55,6 +55,16 @@ body {
 img { display: block; max-width: 100%; height: auto; }
 a { color: var(--color-silver); text-decoration: none; }
 a:hover { color: var(--color-red); }
+
+/* Regelwerk-Querverweise sichtbar machen: gelb + unterstrichen */
+.rule-link {
+  color: var(--color-yellow);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.rule-link:hover,
+.rule-link:focus-visible { color: #fff; text-decoration-color: var(--color-red); }
 ul, ol { list-style: none; }
 .bullet-list { list-style: disc; padding-left: 1.5rem; }
 button { font: inherit; cursor: pointer; background: none; border: none; color: inherit; }
@@ -865,6 +875,11 @@ body.modal-open { overflow: hidden; }
   align-items: center;
   justify-content: center;
   font-size: 1.6rem;
+  line-height: 1;
+  /* Das ▶-Dreieck sitzt durch seine Glyphen-Geometrie leicht links —
+     kleiner Rechts-Versatz, damit es optisch mittig im Kreis steht. */
+  box-sizing: border-box;
+  padding-left: 5px;
   transition: transform var(--transition-fast), color var(--transition-fast);
 }
 .video__btn:hover,
@@ -981,8 +996,8 @@ body.modal-open { overflow: hidden; }
   margin: var(--space-6) 0;
 }
 .card-figure {
-  flex: 0 1 220px;
-  max-width: 240px;
+  flex: 0 1 120px;
+  max-width: 130px;
   margin: 0;
   text-align: center;
 }
@@ -1050,8 +1065,8 @@ body.modal-open { overflow: hidden; }
 .hier-row__stats { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); margin-top: var(--space-2); }
 .hier-stat { font-size: 0.8rem; color: var(--color-silver-dim); white-space: nowrap; }
 .hier-stat b { color: #fff; font-family: var(--font-display); font-weight: 400; margin-left: 3px; }
-.hier-row--special { border-left-color: var(--color-yellow); }
-.hier-row--special .hier-row__rank { color: var(--color-yellow); font-size: 1.3rem; }
+.hier-row--special { border-left-color: var(--color-silver); }
+.hier-row--special .hier-row__rank { color: var(--color-silver); font-size: 1.3rem; }
 .hier-row--special .hier-row__logo { height: 64px; }
 @media (max-width: 560px) {
   .hier-row { grid-template-columns: 1.8rem 60px 1fr; gap: var(--space-3); }
@@ -1072,3 +1087,56 @@ body.modal-open { overflow: hidden; }
 
 /* In-Text-Anker im Regelwerk nicht unter dem Sticky-Header verschwinden lassen */
 .hofregeln-section [id] { scroll-margin-top: 90px; }
+
+/* ============================================
+   KARTENBEISPIELE IN DER SCHRITT-LISTE (Kapitel 2)
+   ============================================ */
+.step-card {
+  float: right;
+  width: 84px;
+  margin: 0 0 var(--space-2) var(--space-4);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-silver-faint);
+  background: #050505;
+}
+.steps-list li::after { content: ""; display: block; clear: both; } /* gefloatete Karte einfangen */
+@media (max-width: 560px) {
+  .step-card { width: 64px; margin-left: var(--space-3); }
+}
+
+/* ============================================
+   HOME: CHARAKTERKARTEN KOMPAKTER (≈ halbe Größe)
+   ============================================ */
+.character-grid { justify-items: center; }
+.gang-card--character { max-width: 160px; }
+
+/* ============================================
+   HACKORDNUNG: ROT/GELB IM WECHSEL, SPEZIAL SILBER, SCHADEN-BADGES
+   ============================================ */
+.hier-row:nth-child(odd):not(.hier-row--special) { border-left-color: var(--color-red); }
+.hier-row:nth-child(odd):not(.hier-row--special) .hier-row__rank { color: var(--color-red); }
+.hier-row:nth-child(even):not(.hier-row--special) { border-left-color: var(--color-yellow); }
+.hier-row:nth-child(even):not(.hier-row--special) .hier-row__rank { color: var(--color-yellow); }
+
+.hier-stat .hier-dmg {
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 1px 8px;
+  margin-left: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-silver-faint);
+  color: #fff;
+  text-align: center;
+}
+.hier-stat .hier-dmg--high {
+  background: var(--color-red);
+  border-color: var(--color-red);
+  color: #fff;
+  box-shadow: 0 0 12px var(--color-red-glow);
+}
+.hier-stat .hier-dmg--zero {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-silver-dim);
+}
