@@ -27,31 +27,35 @@
   });
 })();
 
-/* ---- YouTube-Facade: lädt das Video erst nach Klick (Privacy) ---- */
+/* ---- Video: selbst gehostete MP4s (kein externer Dienst) ---- */
 const BD_VIDEO = (() => {
-  // Baut in `container` eine Klick-Fläche; erst beim Klick wird das
-  // youtube-nocookie-iframe geladen. Vorher kein Request an Google.
+  // Baut in `container` ein selbst gehostetes Video.
+  // - opts.autoplay: stummes Endlos-Video sofort (für Charakter-Clips im Overlay)
+  // - sonst: Poster/Klick-Fläche, erst beim Klick startet die Wiedergabe mit Ton
   // opts: { poster?: <Bild-URL → Poster-Variante>, ratio?: 'portrait', label?: <Text> }
-  function mount(container, id, title, opts) {
-    if (!id) return;
+  function mount(container, src, title, opts) {
+    if (!src) return;
     opts = opts || {};
     container.classList.add('video');
     if (opts.ratio === 'portrait') container.classList.add('video--portrait');
 
     if (opts.autoplay) {
-      const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&mute=1&loop=1&controls=0&playlist=' + id + '&rel=0&origin=https://sebos1980-star.github.io';
-      iframe.title = title || 'YouTube-Video';
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
+      const video = document.createElement('video');
+      video.src = src;
+      video.title = title || '';
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
       container.classList.add('is-playing');
-      container.appendChild(iframe);
+      container.appendChild(video);
       return;
     }
 
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.setAttribute('aria-label', 'Video laden und abspielen' + (title ? ': ' + title : ''));
+    btn.setAttribute('aria-label', 'Video abspielen' + (title ? ': ' + title : ''));
 
     if (opts.poster) {
       // Poster-Variante: Bild als Hintergrund, nur Play-Symbol + Label darüber.
@@ -65,19 +69,20 @@ const BD_VIDEO = (() => {
       btn.className = 'video__btn';
       btn.innerHTML =
         '<span class="video__play" aria-hidden="true">&#9654;</span>' +
-        '<span class="video__label">Video ansehen</span>' +
-        '<span class="video__hint">Lädt YouTube erst nach Klick.</span>';
+        '<span class="video__label">Video ansehen</span>';
     }
 
     btn.addEventListener('click', () => {
-      const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube.com/embed/' + id + '?rel=0&origin=https://sebos1980-star.github.io';
-      iframe.title = title || 'YouTube-Video';
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
+      const video = document.createElement('video');
+      video.src = src;
+      video.title = title || '';
+      video.controls = true;
+      video.autoplay = true;
+      video.setAttribute('playsinline', '');
       container.innerHTML = '';
       container.classList.add('is-playing'); // entfernt u. a. die Poster-Maske
-      container.appendChild(iframe);
+      container.appendChild(video);
+      video.play();
     });
 
     container.innerHTML = '';
@@ -85,8 +90,8 @@ const BD_VIDEO = (() => {
   }
 
   // Statische Facade-Container aufbauen (inkl. optionalem Poster / Hochformat)
-  document.querySelectorAll('.video[data-video]').forEach((el) => {
-    mount(el, el.dataset.video, el.dataset.title, {
+  document.querySelectorAll('.video[data-video-src]').forEach((el) => {
+    mount(el, el.dataset.videoSrc, el.dataset.title, {
       poster: el.dataset.poster,
       ratio: el.dataset.ratio,
     });
@@ -112,11 +117,11 @@ const BD_VIDEO = (() => {
     const img = trigger.dataset.img || '';
     const fullEl = trigger.querySelector('.gang-card__full');
     const fullText = fullEl ? fullEl.textContent.trim() : '';
-    const videoId = trigger.dataset.video || '';
+    const videoSrc = trigger.dataset.videoSrc || '';
     const videoRatio = trigger.dataset.videoRatio || '';
 
     titleEl.textContent = title;
-    if (img && !videoId) {
+    if (img && !videoSrc) {
       imgEl.src = img;
       imgEl.alt = title;
       imgEl.hidden = false;
@@ -132,17 +137,17 @@ const BD_VIDEO = (() => {
     }
 
     videoEl.innerHTML = '';
-    dialog.classList.toggle('modal__dialog--has-video', !!videoId);
+    dialog.classList.toggle('modal__dialog--has-video', !!videoSrc);
     lastFocused = document.activeElement;
     modal.hidden = false;
     document.body.classList.add('modal-open');
     dialog.scrollTop = 0;
     modal.querySelector('.modal__close').focus();
 
-    if (videoId) {
+    if (videoSrc) {
       const v = document.createElement('div');
       videoEl.appendChild(v);
-      BD_VIDEO.mount(v, videoId, title, { ratio: videoRatio, autoplay: true });
+      BD_VIDEO.mount(v, videoSrc, title, { ratio: videoRatio, autoplay: true });
     }
   }
 
@@ -196,9 +201,9 @@ const BD_VIDEO = (() => {
 
 /* ---- Hero-Trailer: Titelbild als Poster, Klick lädt den Trailer ---- */
 (() => {
-  const hero = document.querySelector('.hero__media[data-video]');
+  const hero = document.querySelector('.hero__media[data-video-src]');
   if (!hero) return;
-  BD_VIDEO.mount(hero, hero.dataset.video, hero.dataset.title, {
+  BD_VIDEO.mount(hero, hero.dataset.videoSrc, hero.dataset.title, {
     poster: hero.dataset.poster,
     label: 'Trailer ansehen',
   });
