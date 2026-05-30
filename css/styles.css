@@ -56,16 +56,15 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: var(--color-silver); text-decoration: none; }
 a:hover { color: var(--color-red); }
 
-/* Regelwerk-Querverweise: silber mit rotem Unterstrich, Hover → gelb */
+/* Regelwerk-Querverweise: silber & halbfett, kein Unterstrich, Hover → gelb */
 .rule-link {
   color: var(--color-silver);
-  text-decoration: underline;
-  text-decoration-color: var(--color-red);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
 .rule-link:hover,
-.rule-link:focus-visible { color: var(--color-yellow); text-decoration-color: var(--color-yellow); }
+.rule-link:focus-visible { color: var(--color-yellow); }
 ul, ol { list-style: none; }
 .bullet-list { list-style: disc; padding-left: 1.5rem; }
 button { font: inherit; cursor: pointer; background: none; border: none; color: inherit; }
@@ -513,17 +512,38 @@ strong { color: #fff; }
   top: 0.4rem;
   font-size: 0.7rem;
 }
-/* Nummerierte Schritte: globales list-style:none hier zurücknehmen */
+/* Nummerierte Schritte mit runden Nummern-Badges (roter Kreis, weiße Ziffer) */
 .hofregeln-section ol {
-  list-style: decimal;
-  padding-left: var(--space-8);
+  list-style: none;
+  counter-reset: schritt;
+  padding-left: 0;
   margin-bottom: var(--space-4);
 }
 .hofregeln-section ol li {
-  margin-bottom: var(--space-3);
-  padding-left: var(--space-2);
+  counter-increment: schritt;
+  position: relative;
+  padding-left: 3rem;
+  min-height: 2rem;
+  margin-bottom: var(--space-4);
 }
-.hofregeln-section ol li::marker { color: var(--color-red); font-weight: 700; }
+.hofregeln-section ol li::before {
+  content: counter(schritt);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-red);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px var(--color-red-glow);
+}
 
 .hofregeln-page__intro {
   max-width: var(--max-width-text);

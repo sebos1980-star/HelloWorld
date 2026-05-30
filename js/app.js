@@ -113,6 +113,18 @@ const BD_VIDEO = (() => {
   const bodyEl = modal.querySelector('.modal__body');
   const videoEl = modal.querySelector('.modal__video');
   let lastFocused = null;
+  let cameFromOtherPage = false; // Modal per Querverweis von einer anderen Seite geöffnet?
+
+  // Kam der Nutzer von einer anderen Unterseite gleicher Domain (z. B. Hofregeln)?
+  function isReferrerOtherPage() {
+    if (!document.referrer) return false;
+    try {
+      const ref = new URL(document.referrer);
+      return ref.origin === location.origin && ref.pathname !== location.pathname;
+    } catch (e) {
+      return false;
+    }
+  }
 
   function open(trigger) {
     const title = trigger.dataset.title || '';
@@ -157,6 +169,13 @@ const BD_VIDEO = (() => {
     modal.hidden = true;
     document.body.classList.remove('modal-open');
     videoEl.innerHTML = ''; // stoppt eine evtl. laufende Wiedergabe
+    // Per Querverweis von einer anderen Seite gekommen (z. B. Hackordnung in den
+    // Hofregeln)? Dann dorthin zurück, statt auf der Startseite zu bleiben.
+    if (cameFromOtherPage && window.history.length > 1) {
+      cameFromOtherPage = false;
+      history.back();
+      return;
+    }
     if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
   }
 
@@ -195,7 +214,10 @@ const BD_VIDEO = (() => {
     const hash = location.hash.slice(1);
     if (!hash) return;
     const el = document.getElementById(hash);
-    if (el && el.hasAttribute('data-modal')) open(el);
+    if (el && el.hasAttribute('data-modal')) {
+      cameFromOtherPage = isReferrerOtherPage();
+      open(el);
+    }
   }
   window.addEventListener('hashchange', openFromHash);
   openFromHash();
