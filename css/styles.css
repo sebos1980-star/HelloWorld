@@ -56,15 +56,16 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: var(--color-silver); text-decoration: none; }
 a:hover { color: var(--color-red); }
 
-/* Regelwerk-Querverweise sichtbar machen: gelb + unterstrichen */
+/* Regelwerk-Querverweise: silber mit rotem Unterstrich, Hover → gelb */
 .rule-link {
-  color: var(--color-yellow);
+  color: var(--color-silver);
   text-decoration: underline;
+  text-decoration-color: var(--color-red);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
 .rule-link:hover,
-.rule-link:focus-visible { color: #fff; text-decoration-color: var(--color-red); }
+.rule-link:focus-visible { color: var(--color-yellow); text-decoration-color: var(--color-yellow); }
 ul, ol { list-style: none; }
 .bullet-list { list-style: disc; padding-left: 1.5rem; }
 button { font: inherit; cursor: pointer; background: none; border: none; color: inherit; }
@@ -1108,7 +1109,7 @@ body.modal-open { overflow: hidden; }
    HOME: CHARAKTERKARTEN KOMPAKTER (≈ halbe Größe)
    ============================================ */
 .character-grid { justify-items: center; }
-.gang-card--character { max-width: 160px; }
+.gang-card--character { max-width: 200px; }
 
 /* ============================================
    HACKORDNUNG: ROT/GELB IM WECHSEL, SPEZIAL SILBER, SCHADEN-BADGES
