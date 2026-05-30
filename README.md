@@ -49,10 +49,14 @@ Farben werden als CSS-Variablen in `:root` gepflegt — Anpassungen an einem Ort
 
 ### Custom Domain (bronko-donko.com)
 
-1. Bei **Ionos** DNS umstellen:
-   - `A`-Records auf GitHub-Pages-IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` für `www` auf `sebos1980-star.github.io`
-2. GitHub → **Settings** → **Pages** → **Custom domain**: `bronko-donko.com` eintragen
-3. **Enforce HTTPS** anhaken, sobald DNS verifiziert ist
+✅ **Eingerichtet und aktiv.** Die Seite ist unter `https://www.bronko-donko.com/` erreichbar. Die DNS-Umstellung bei Ionos ist abgeschlossen, die Domain in GitHub Pages verifiziert.
+
+Die folgende Konfiguration ist als Referenz dokumentiert (für Umzüge oder Fehlersuche):
+
+- **Ionos DNS:**
+  - `A`-Records auf GitHub-Pages-IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+  - `CNAME` für `www` auf `sebos1980-star.github.io`
+- **GitHub** → **Settings** → **Pages** → **Custom domain**: `www.bronko-donko.com` (siehe `CNAME`-Datei im Repo-Root)
+- **Enforce HTTPS** ist aktiv
 
 **Wichtig:** Keine Ionos-Weiterleitung zur GitHub-Pages-URL — `/hofregeln/` muss als Pfad erhalten bleiben (QR-Code auf der Verpackung).
