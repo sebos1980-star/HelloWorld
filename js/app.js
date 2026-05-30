@@ -48,8 +48,10 @@ const BD_VIDEO = (() => {
       video.muted = true;
       video.setAttribute('muted', '');
       video.setAttribute('playsinline', '');
+      if (opts.poster) video.poster = opts.poster; // Standbild bis das Video läuft (kein schwarzes Flackern)
       container.classList.add('is-playing');
       container.appendChild(video);
+      video.play().catch(() => {}); // manche Browser starten beim Re-Mount nicht allein
       return;
     }
 
@@ -147,7 +149,7 @@ const BD_VIDEO = (() => {
     if (videoSrc) {
       const v = document.createElement('div');
       videoEl.appendChild(v);
-      BD_VIDEO.mount(v, videoSrc, title, { ratio: videoRatio, autoplay: true });
+      BD_VIDEO.mount(v, videoSrc, title, { ratio: videoRatio, autoplay: true, poster: img });
     }
   }
 
