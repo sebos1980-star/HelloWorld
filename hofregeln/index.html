@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patua+One&family=Nunito:wght@400;700&display=swap" />
-  <link rel="stylesheet" href="../css/styles.css?v=2" />
+  <link rel="stylesheet" href="../css/styles.css?v=3" />
   <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
 </head>
 <body>
@@ -59,7 +59,11 @@
          data-poster="../assets/images/hero-title.png"
          style="background-image:url('../assets/images/hero-title.png')"></div>
     <div class="note-box">
-      <strong>Hinweis zum Video:</strong> Bei <strong>Minute 4:27</strong> wird noch die alte Regel gezeigt, dass eine zuletzt gespielte Karte von einem Mitspieler weggeboxt werden kann — das gilt nicht mehr. Spielt ein Spieler seine letzte Handkarte, endet die Schlägerei sofort; niemand kann diese Karte noch wegboxen.
+      <strong>Was das Video zeigt — und was nicht:</strong> Das Tutorial erklärt nur die <strong>Grundregeln</strong> einer kompletten Schlägerei: vom Austeilen der Karten in der ersten Runde bis zur Abrechnung am Ende. Die fortgeschrittenen Kniffe kommen bewusst noch nicht vor — die findest du weiter unten im Regelwerk: <a class="rule-link" href="#verrat">Verrat</a>, <a class="rule-link" href="#revolution">Revolution</a>, <a class="rule-link" href="#weste">Weste</a>, <a class="rule-link" href="#kapitel4">Anzählen</a> und der <a class="rule-link" href="#fluchtplan">Fluchtplan</a>.
+      <ul class="note-box__list">
+        <li>Im Video heißt die Formation aus mehreren gleich starken Karten noch <em>„Gäng“</em> — gemeint ist immer der <a class="rule-link" href="#mob">Mob</a>. (In den Regeln ist eine <em>Gäng</em> nur der Sammelname für alle vier Karten einer Stärke.)</li>
+        <li>Bei <strong>Minute 4:27</strong> wird noch die alte Regel gezeigt, dass eine zuletzt gespielte Karte weggeboxt werden kann — das gilt nicht mehr. Spielt ein Spieler seine letzte Handkarte, endet die Schlägerei sofort.</li>
+      </ul>
     </div>
 
     <section class="hofregeln-section" id="kapitel1">
@@ -119,11 +123,32 @@
 
       <h3 id="formationen">Die Formationen</h3>
       <p>Wer das Kommando hat, eröffnet den Schlagabtausch mit einer von drei Formationen und legt damit den Typ und die exakte Kartenanzahl fest:</p>
-      <ul>
-        <li id="solo"><strong>Solo:</strong> Eine einzelne Kämpferkarte (z. B. <span class="c-num c-red">7</span>).</li>
-        <li id="mob"><strong>Mob:</strong> Zwei bis vier Kämpferkarten mit <em>exakt derselben Stärke</em> (z. B. ein 3er-Mob <span class="c-num c-blu">5</span>-<span class="c-num c-yel">5</span>-<span class="c-num c-grn">5</span>).</li>
-        <li id="strasse"><strong>Straße:</strong> Mindestens drei Kämpferkarten der gleichen Farbe in ununterbrochener, aufsteigender Reihenfolge (z. B. <span class="c-num c-grn">3</span>-<span class="c-num c-grn">4</span>-<span class="c-num c-grn">5</span>). Du kannst auch den Dünenwolf als Joker nutzen, dargestellt als weißes Fragezeichen (z. B. <span class="c-num c-red">3</span>-<span class="c-num c-wht">?</span>-<span class="c-num c-red">5</span>-<span class="c-num c-red">6</span>).</li>
-      </ul>
+      <div class="formation-grid">
+        <div class="formation-card" id="solo">
+          <div class="formation-card__head">
+            <span class="formation-card__label">Solo</span>
+            <span class="formation-card__count">1 Karte</span>
+          </div>
+          <div class="formation-card__cards"><span class="c-num c-red">7</span></div>
+          <p class="formation-card__desc">Eine einzelne Kämpferkarte.</p>
+        </div>
+        <div class="formation-card" id="mob">
+          <div class="formation-card__head">
+            <span class="formation-card__label">Mob</span>
+            <span class="formation-card__count">2–4 Karten</span>
+          </div>
+          <div class="formation-card__cards"><span class="c-num c-blu">5</span><span class="c-num c-yel">5</span><span class="c-num c-grn">5</span></div>
+          <p class="formation-card__desc">Mehrere Kämpfer mit <em>exakt derselben Stärke</em> (hier ein 3er-Mob der Stärke 5). Der Dünenwolf kann als Joker <span class="c-num c-wht">?</span> mitmischen.</p>
+        </div>
+        <div class="formation-card" id="strasse">
+          <div class="formation-card__head">
+            <span class="formation-card__label">Straße</span>
+            <span class="formation-card__count">ab 3 Karten</span>
+          </div>
+          <div class="formation-card__cards"><span class="c-num c-grn">3</span><span class="c-num c-grn">4</span><span class="c-num c-grn">5</span></div>
+          <p class="formation-card__desc">Mindestens drei Karten <em>derselben Farbe</em> in ununterbrochener, aufsteigender Reihe. Der Dünenwolf springt als Joker <span class="c-num c-wht">?</span> ein.</p>
+        </div>
+      </div>
 
       <h3>Die Kampf-Aktionen</h3>
       <p>Im Uhrzeigersinn hat jeder folgende Spieler nun genau drei Optionen. Es gilt das Gesetz des Hofes: <strong>Gleiches muss mit Gleichem bekämpft werden!</strong> Typ und Kartenanzahl der Formation müssen exakt bedient werden.</p>
