@@ -1116,8 +1116,11 @@ body.modal-open { overflow: hidden; }
    ============================================ */
 .hier-row:nth-child(odd):not(.hier-row--special) { border-left-color: var(--color-red); }
 .hier-row:nth-child(odd):not(.hier-row--special) .hier-row__rank { color: var(--color-red); }
+.hier-row:nth-child(odd):not(.hier-row--special) .hier-row__name a { color: var(--color-red); text-decoration-color: var(--color-red); }
 .hier-row:nth-child(even):not(.hier-row--special) { border-left-color: var(--color-yellow); }
 .hier-row:nth-child(even):not(.hier-row--special) .hier-row__rank { color: var(--color-yellow); }
+.hier-row:nth-child(even):not(.hier-row--special) .hier-row__name a { color: var(--color-yellow); text-decoration-color: var(--color-yellow); }
+.hier-row--special .hier-row__name a { color: var(--color-silver); text-decoration-color: var(--color-silver); }
 
 .hier-stat .hier-dmg {
   display: inline-block;
