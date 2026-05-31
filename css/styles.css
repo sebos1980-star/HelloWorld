@@ -638,6 +638,47 @@ strong { color: #fff; }
   color: #7ac15f;
 }
 
+/* ---- Variant-Callout (Verweis auf die 2-Spieler-Variante) ---- */
+.variant-callout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: var(--max-width-text);
+  margin: 0 auto var(--space-12);
+  padding: var(--space-4) var(--space-6);
+  background-color: rgba(242, 194, 0, 0.08);
+  border: 1px solid rgba(242, 194, 0, 0.35);
+  border-left: 4px solid var(--color-yellow);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--color-silver);
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+.variant-callout:hover,
+.variant-callout:focus-visible {
+  background-color: rgba(242, 194, 0, 0.16);
+  color: var(--color-silver);
+  transform: translateY(-1px);
+}
+.variant-callout__icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.variant-callout__body { display: block; }
+.variant-callout__title {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--color-yellow);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-1);
+}
+.variant-callout__text {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--color-silver-dim);
+}
+.variant-callout__text strong { color: var(--color-silver); }
+
 /* ---- Formations-Karten (Solo / Mob / Straße) ---- */
 .formation-grid {
   display: grid;
