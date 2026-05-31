@@ -1237,3 +1237,435 @@ body.modal-open { overflow: hidden; }
   border-color: transparent;
   color: var(--color-silver-dim);
 }
+
+/* ============================================
+   HOFREGELN-AKKORDEON (Kapitel als <details>)
+   ============================================ */
+.rules-tools {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 var(--space-4);
+}
+.rules-toggle-all {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+  border: 1px solid var(--color-silver-faint);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-4);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+.rules-toggle-all:hover,
+.rules-toggle-all:focus-visible { border-color: var(--color-yellow); outline: none; }
+
+.chapter {
+  background: #0a0a0a;
+  border: 1px solid var(--color-silver-faint);
+  border-left: 4px solid var(--color-red);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-4);
+  scroll-margin-top: 80px;
+  overflow: hidden;
+}
+.chapter[open] { border-left-color: var(--color-yellow); }
+
+.chapter__summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  cursor: pointer;
+  list-style: none;
+  transition: background var(--transition-fast);
+}
+.chapter__summary::-webkit-details-marker { display: none; }
+.chapter__summary:hover { background: rgba(192, 192, 192, 0.04); }
+.chapter__summary:focus-visible { outline: 2px solid var(--color-yellow); outline-offset: -2px; }
+
+.chapter__num {
+  flex: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--color-red);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px var(--color-red-glow);
+}
+.chapter[open] .chapter__num {
+  background: var(--color-yellow);
+  color: #000;
+  box-shadow: 0 0 10px var(--color-yellow-glow);
+}
+
+.chapter__head { flex: 1; min-width: 0; }
+.chapter__title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: var(--color-red);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+.chapter[open] .chapter__title { color: var(--color-yellow); }
+.chapter__teaser {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-silver-dim);
+  margin-top: 2px;
+}
+.chapter[open] .chapter__teaser { display: none; } /* offen: Teaser weg, mehr Ruhe */
+
+.chapter__chevron {
+  flex: none;
+  font-size: 1.2rem;
+  color: var(--color-silver-dim);
+  transition: transform var(--transition-med), color var(--transition-fast);
+}
+.chapter[open] .chapter__chevron { transform: rotate(90deg); color: var(--color-yellow); }
+.chapter__summary:hover .chapter__chevron { color: var(--color-yellow); }
+
+.chapter__body {
+  padding: var(--space-4) var(--space-6) var(--space-6);
+  border-top: 1px solid var(--color-silver-faint);
+}
+/* Kapitelinhalt erbt die bestehenden .hofregeln-section-Stile (h3/h4/ul/ol),
+   nur den Außenabstand im Akkordeon zurücksetzen */
+.chapter .hofregeln-section { margin-bottom: 0; }
+@media (max-width: 560px) {
+  .chapter__body { padding-left: var(--space-4); padding-right: var(--space-4); }
+}
+
+/* ============================================
+   PRINZIP-BANNER (Kernregeln hervorheben)
+   ============================================ */
+.principle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: linear-gradient(135deg, rgba(237, 19, 13, 0.14), rgba(0, 0, 0, 0.4));
+  border: 1px solid var(--color-red);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-6) 0;
+}
+.principle__icon { font-size: 1.7rem; line-height: 1; flex: none; }
+.principle__text {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+.principle--accent {
+  background: linear-gradient(135deg, rgba(242, 194, 0, 0.14), rgba(0, 0, 0, 0.4));
+  border-color: var(--color-yellow);
+}
+.principle--accent .principle__text { color: var(--color-yellow); }
+
+/* ============================================
+   KARTENTYP-VERGLEICH (Kap. 1)
+   ============================================ */
+.type-compare {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+.type-card {
+  background: #0a0a0a;
+  border: 1px solid var(--color-silver-faint);
+  border-top: var(--border-thick) solid var(--color-red);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+.type-card__img {
+  width: 92px;
+  margin: 0 auto var(--space-3);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-silver-faint);
+  background: #050505;
+}
+.type-card__name {
+  font-family: var(--font-display);
+  color: var(--color-yellow);
+  font-size: 1.2rem;
+  text-align: center;
+}
+.type-card__meta {
+  font-size: 0.72rem;
+  color: var(--color-silver-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin-bottom: var(--space-3);
+}
+.type-card__desc { font-size: 0.92rem; }
+@media (max-width: 560px) { .type-compare { grid-template-columns: 1fr; } }
+
+/* ============================================
+   KARTEN-ANATOMIE (Kap. 1, beschriftetes Kartenbild)
+   ============================================ */
+.card-anatomy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  align-items: flex-start;
+  margin: var(--space-6) 0;
+}
+.card-anatomy__fig {
+  position: relative;
+  flex: 0 0 auto;
+  width: 220px;
+  max-width: 70vw;
+  margin: 0 auto;
+}
+.card-anatomy__fig img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-silver-faint);
+}
+.anatomy-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  pointer-events: none;
+}
+.anatomy-marker--tr,
+.anatomy-marker--br { flex-direction: row-reverse; }
+.anatomy-marker__no {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 2px #000, 0 0 8px var(--color-yellow-glow);
+}
+.anatomy-marker__txt {
+  font-size: 0.68rem;
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  padding: 1px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.anatomy-legend { flex: 1 1 280px; min-width: 240px; }
+/* Nummern-Badge in der Anatomie-Legende (passend zu den gelben Markern) */
+.anat-no {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  margin-right: 0.4rem;
+}
+
+/* ============================================
+   AKTIONS-KARTEN (Kap. 3: Schlagen / Wegboxen / Ducken)
+   ============================================ */
+.action-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+.action-card {
+  background: #0a0a0a;
+  border: 1px solid var(--color-silver-faint);
+  border-left: 4px solid var(--color-red);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-6);
+}
+.action-card__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+.action-card__icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(237, 19, 13, 0.15);
+  border: 1px solid var(--color-red);
+  font-size: 1.1rem;
+}
+.action-card__label {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--color-yellow);
+  letter-spacing: 0.02em;
+}
+.action-card__desc { margin: 0; }
+.action-card .example-box { margin-bottom: 0; }
+
+/* ============================================
+   ABLAUF-TIMELINE (Kap. 4)
+   ============================================ */
+.flow {
+  position: relative;
+  margin: var(--space-6) 0;
+  padding-left: 1.8rem;
+  border-left: 2px solid var(--color-silver-faint);
+}
+.flow__step { position: relative; margin-bottom: var(--space-8); }
+.flow__step:last-child { margin-bottom: 0; }
+.flow__step::before {
+  content: '';
+  position: absolute;
+  left: -1.8rem;
+  top: 0.4rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-left: -0.49rem;
+  border-radius: 50%;
+  background: var(--color-red);
+  border: 2px solid #000;
+  box-shadow: 0 0 8px var(--color-red-glow);
+}
+.flow__step > h3:first-child { margin-top: 0; }
+
+/* ============================================
+   AUSWEGE / VERRAT-TAUSCH (Kap. 5)
+   ============================================ */
+.swap-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+.swap-party {
+  background: #0a0a0a;
+  border: 1px solid var(--color-silver-faint);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-6);
+  text-align: center;
+  min-width: 120px;
+}
+.swap-party__role { font-family: var(--font-display); color: var(--color-yellow); font-size: 1.15rem; }
+.swap-party__sub { display: block; font-size: 0.78rem; color: var(--color-silver-dim); }
+.swap-arrows { display: flex; flex-direction: column; gap: var(--space-2); font-size: 0.82rem; }
+.swap-arrows span { white-space: nowrap; }
+.swap-arrows .a-give { color: var(--color-red); }
+.swap-arrows .a-back { color: var(--color-silver-dim); }
+
+/* ============================================
+   REVOLUTION-FLIP (Kap. 6)
+   ============================================ */
+.flip-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  margin: var(--space-6) 0;
+  flex-wrap: wrap;
+}
+.flip-demo__item { text-align: center; }
+.flip-demo__card {
+  width: 72px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  background: #131313;
+  border: 2px solid;
+}
+.flip-demo__card--before { color: #3399ff; border-color: #0066cc; }
+.flip-demo__card--after { color: var(--color-yellow); border-color: #cc9900; }
+.flip-demo__label { display: block; font-size: 0.78rem; color: var(--color-silver-dim); margin-top: var(--space-2); }
+.flip-demo__arrow { font-size: 1.8rem; color: var(--color-yellow); }
+
+/* ============================================
+   WESTE-ZUSTÄNDE (Kap. 6)
+   ============================================ */
+.toggle-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin: var(--space-6) 0;
+}
+.toggle-demo figure { flex: 0 1 130px; margin: 0; text-align: center; }
+.toggle-demo img { width: 100%; border-radius: var(--radius); border: 1px solid var(--color-silver-faint); }
+.toggle-demo figcaption { margin-top: var(--space-2); font-size: 0.82rem; color: var(--color-silver-dim); }
+.toggle-demo__arrow { font-size: 1.8rem; color: var(--color-yellow); }
+
+/* ============================================
+   STAT-BLÖCKE (Kap. 7: Ungebetene Gäste)
+   ============================================ */
+.statblock {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+  background: #0a0a0a;
+  border: 1px solid var(--color-silver-faint);
+  border-left: 4px solid var(--color-yellow);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-6) 0;
+}
+.statblock__img { flex: 0 0 110px; }
+.statblock__img img { width: 100%; border-radius: var(--radius); border: 1px solid var(--color-silver-faint); }
+.statblock__main { flex: 1; min-width: 0; }
+.statblock__name {
+  font-family: var(--font-display);
+  color: var(--color-yellow);
+  font-size: 1.3rem;
+  margin-bottom: var(--space-2);
+}
+.statblock__stats { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); margin-bottom: var(--space-3); }
+.stat-chip {
+  font-size: 0.78rem;
+  color: var(--color-silver-dim);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-silver-faint);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+.stat-chip b { color: #fff; font-family: var(--font-display); font-weight: 400; margin-left: 4px; }
+.statblock ul { margin-bottom: 0; }
+@media (max-width: 560px) {
+  .statblock { flex-direction: column; align-items: center; }
+  .statblock__img { flex-basis: auto; width: 120px; }
+}
+
+/* ============================================
+   AKKORDEON: REDUCED MOTION & DRUCK
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .chapter__chevron { transition: none; }
+}
+@media print {
+  .rules-tools, .chapter__chevron, .toc { display: none; }
+  .chapter > .chapter__body { display: block !important; }
+  .chapter__teaser { display: none; }
+}

@@ -252,3 +252,70 @@ const BD_VIDEO = (() => {
   }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
   els.forEach((el) => io.observe(el));
 })();
+
+/* ---- Hofregeln-Akkordeon: Anker öffnen ihr Kapitel + „Alle aufklappen" ---- */
+(() => {
+  if (!document.querySelector('.hofregeln-page')) return;
+
+  const elById = (hash) => {
+    if (!hash || hash === '#') return null;
+    const id = hash.charAt(0) === '#' ? hash.slice(1) : hash;
+    try { return document.getElementById(decodeURIComponent(id)); }
+    catch (e) { return document.getElementById(id); }
+  };
+
+  // Kapitel (<details>) zum Ziel aufklappen
+  const openChapterFor = (target) => {
+    const chapter = target && target.closest('details.chapter');
+    if (chapter && !chapter.open) chapter.open = true;
+    return chapter;
+  };
+
+  const goTo = (el, smooth) => {
+    openChapterFor(el);
+    requestAnimationFrame(() => {
+      el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+    });
+  };
+
+  // In-Page-Links (TOC + Querverweise) öffnen ihr Kapitel und scrollen sauber
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const hash = a.getAttribute('href');
+    const el = elById(hash);
+    if (!el) return; // z. B. Skip-Link auf #main bleibt Standardverhalten
+    e.preventDefault();
+    if (location.hash !== hash) history.pushState(null, '', hash);
+    goTo(el, true);
+  });
+
+  // Direktaufruf per Hash (QR / Deep-Link) und Vor-/Zurück-Navigation
+  window.addEventListener('hashchange', () => {
+    const el = elById(location.hash);
+    if (el) goTo(el, true);
+  });
+  if (location.hash) {
+    const el = elById(location.hash);
+    if (el) goTo(el, false);
+  }
+
+  // Beim Aufklappen die reveal-Elemente (Hackordnung) sicher einblenden
+  document.querySelectorAll('details.chapter').forEach((ch) => {
+    ch.addEventListener('toggle', () => {
+      if (ch.open) ch.querySelectorAll('.reveal').forEach((r) => r.classList.add('is-visible'));
+    });
+  });
+
+  // „Alle Kapitel öffnen / schließen"
+  const toggleAll = document.querySelector('[data-toggle-all]');
+  if (toggleAll) {
+    const chapters = Array.from(document.querySelectorAll('details.chapter'));
+    toggleAll.addEventListener('click', () => {
+      const open = chapters.some((c) => !c.open); // ist eines zu → alle auf
+      chapters.forEach((c) => { c.open = open; });
+      toggleAll.textContent = open ? 'Alle Kapitel schließen' : 'Alle Kapitel öffnen';
+      toggleAll.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+})();
